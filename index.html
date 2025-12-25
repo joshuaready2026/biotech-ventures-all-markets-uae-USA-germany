@@ -12,6 +12,9 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
    
+    <!-- Stripe JS -->
+    <script src="https://js.stripe.com/v3/"></script>
+   
     <style>
         body { font-family: 'Helvetica Neue', Arial, sans-serif; }
         .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://media.istockphoto.com/id/1496615445/photo/portrait-of-beautiful-happy-woman-smiling-during-sunset-outdoor.jpg?s=170667a&w=0&k=20&c=MfTd96jvZBBHAIZOoE3-WjbkriYLT-a_UEr30jKARVI='); background-size: cover; background-position: center; color: white; padding: 180px 0; }
@@ -47,7 +50,7 @@
         <div class="container">
             <h1 class="display-3 fw-bold">Your Path to Better Health Starts Here</h1>
             <p class="lead fs-2">Global GLP-1 Weight Management • USA • UAE • Germany</p>
-            <p class="lead">All-inclusive programs with licensed local providers: consultation, medication, follow-ups, and discreet shipping.<br>USA: $299–$399/month • UAE: ~1,850–2,390 AED/month • Germany: ~€449–€549/month</p>
+            <p class="lead">All-inclusive programs with licensed local providers: consultation, medication, follow-ups, and discreet shipping.</p>
             <a href="#markets" class="btn btn-light btn-lg mt-4 px-5 py-3">View Programs by Country</a>
         </div>
     </section>
@@ -154,7 +157,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card shadow-sm border-0">
-                        <img src="https://res.cloudinary.com/zava-www-uk/image/upload/fl_progressive/a_exif,f_auto,e_sharpen:100,c_fit,w_1080,h_810,q_70,fl_lossy/v1711032118/sd/uk/services-setup/erectile-dysfunction-unit/sildenafil/zw0aximyqvgb8jzvbby3.png" class="card-img-top card-img-custom" alt="ED Treatment">
+                        <img src="https://media.istockphoto.com/id/1451130171/photo/generic-blue-pill.jpg?s=612x612&w=0&k=20&c=9_qo2I0J9W7WqS5tB5d5YcRKs4eYy9bYq9TuwB6vXw=" class="card-img-top card-img-custom" alt="ED Treatment Pill">
                         <div class="card-body text-center">
                             <h4>Erectile Dysfunction Treatment</h4>
                             <p>Sildenafil, tadalafil, and compounded options.</p>
@@ -202,8 +205,11 @@
                     <img src="https://assets.humana.com/is/image/humana/AdobeStock_392711674-1" class="img-fluid rounded shadow" alt="Doctor Video Consultation">
                 </div>
                 <div class="col-md-6 text-center">
-                    <p class="mb-4">Patients: Use your emailed link.<br>Providers: Access your room.</p>
-                    <a href="https://doxy.me/biotechventures" class="btn btn-primary btn-lg px-5 py-3" target="_blank">Join Video Conference</a>
+                    <p class="mb-4">Pay to enroll and unlock your video consult room. Patients: Use emailed link after payment.<br>Providers: Access your room.</p>
+                    <button id="checkout-button" class="btn btn-primary btn-lg px-5 py-3">Join Now & Pay with Stripe</button>
+                    <div id="video-link" style="display: none; margin-top: 20px;">
+                        <a href="https://doxy.me/biotechventures" class="btn btn-success btn-lg px-5 py-3" target="_blank">Access Unlocked Video Conference</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -249,5 +255,17 @@
     </footer>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Stripe Payment Simulation (Replace with real backend for production) -->
+    <script>
+        // Simulate Stripe payment - In production, use backend to create checkout session
+        document.getElementById('checkout-button').addEventListener('click', function() {
+            // Here, integrate real Stripe: fetch session ID from backend and redirect
+            // For demo, simulate success after 2 seconds
+            setTimeout(() => {
+                document.getElementById('checkout-button').style.display = 'none';
+                document.getElementById('video-link').style.display = 'block';
+            }, 2000); // Simulate payment processing delay
+        });
+    </script>
 </body>
 </html>
