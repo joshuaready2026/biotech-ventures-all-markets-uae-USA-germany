@@ -2,20 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>BioTech Ventures – Global Telehealth for Weight Loss & HRT</title>
+  <title>BioTech Ventures – Global GLP-1 & Telehealth Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
       --primary: #0b7285;
       --primary-light: #e3fafc;
-      --accent: #1971c2;
-      --bg: #f5f7fb;
-      --text: #111827;
-      --muted: #6b7280;
-      --card-bg: #ffffff;
-      --border: #e5e7eb;
+      --accent: #4f46e5;
+      --bg: #020617;
+      --bg-soft: #0b1120;
+      --surface: #020617;
+      --card-bg: #020617;
+      --border: #1e293b;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
       --radius-lg: 1.25rem;
-      --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.12);
+      --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.7);
     }
 
     * {
@@ -26,7 +28,9 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at top left, rgba(79,70,229,0.35), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(8,47,73,0.7), #020617);
       color: var(--text);
       line-height: 1.6;
     }
@@ -37,7 +41,7 @@
     }
 
     .page {
-      max-width: 1120px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 1.5rem 1rem 3rem;
     }
@@ -46,59 +50,82 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.75rem 1rem 1.5rem;
+      padding: 0.75rem 0 1.5rem;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
       font-weight: 700;
       font-size: 1.1rem;
-      color: var(--primary);
     }
 
     .logo-badge {
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: 999px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      background: radial-gradient(circle at 30% 30%, #e0f2fe, #0369a1);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      font-size: 0.8rem;
-      font-weight: 700;
+      color: #0f172a;
+      font-size: 0.85rem;
+      font-weight: 800;
+      box-shadow: 0 0 0 1px rgba(148,163,184,0.3);
+    }
+
+    .logo span {
+      color: #e5e7eb;
+      letter-spacing: 0.03em;
     }
 
     nav {
       display: flex;
-      gap: 1.5rem;
-      font-size: 0.9rem;
+      gap: 1.4rem;
+      font-size: 0.85rem;
       color: var(--muted);
+      flex-wrap: wrap;
     }
 
-    nav a:hover {
-      color: var(--primary);
+    nav a {
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.3rem;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width 0.18s ease-out;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     .btn-outline {
       border-radius: 999px;
-      border: 1px solid var(--primary);
+      border: 1px solid rgba(148,163,184,0.7);
       padding: 0.4rem 0.9rem;
-      font-size: 0.85rem;
-      color: var(--primary);
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      backdrop-filter: blur(10px);
+      background: rgba(15,23,42,0.6);
     }
 
-    main {
+    main.hero-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
       gap: 2rem;
-      align-items: start;
+      align-items: flex-start;
     }
 
-    @media (max-width: 840px) {
-      main {
+    @media (max-width: 880px) {
+      main.hero-layout {
         grid-template-columns: minmax(0, 1fr);
       }
       header {
@@ -106,51 +133,62 @@
         align-items: flex-start;
         gap: 0.75rem;
       }
-      nav {
-        width: 100%;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-      }
     }
 
     .hero-kicker {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--accent);
+      letter-spacing: 0.18em;
+      color: #a5b4fc;
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
 
     .hero-title {
-      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      font-size: clamp(2.0rem, 3vw, 2.5rem);
       font-weight: 800;
       line-height: 1.15;
       margin-bottom: 0.75rem;
-      color: #020617;
+    }
+
+    .hero-title span.gradient {
+      background: linear-gradient(90deg,#22c1c3,#4f46e5,#a855f7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .hero-subtitle {
-      font-size: 0.97rem;
+      font-size: 0.95rem;
       color: var(--muted);
-      max-width: 36rem;
+      max-width: 40rem;
       margin-bottom: 1.2rem;
     }
 
     .hero-badges {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.55rem;
       margin-bottom: 1.6rem;
     }
 
     .hero-badge {
       font-size: 0.75rem;
-      padding: 0.3rem 0.7rem;
+      padding: 0.28rem 0.7rem;
       border-radius: 999px;
-      background: #e0f2fe;
-      color: #0f172a;
-      border: 1px solid #bfdbfe;
+      background: rgba(15,23,42,0.85);
+      color: #e5e7eb;
+      border: 1px solid rgba(148,163,184,0.6);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
     }
 
     .hero-actions {
@@ -166,51 +204,164 @@
       padding: 0.65rem 1.3rem;
       font-size: 0.9rem;
       font-weight: 600;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      background: radial-gradient(circle at 0 0,#a5b4fc,#4f46e5);
       color: white;
       cursor: pointer;
       box-shadow: var(--shadow-soft);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
     }
 
     .btn-ghost {
       border-radius: 999px;
-      border: 1px solid var(--border);
+      border: 1px solid rgba(148,163,184,0.7);
       padding: 0.6rem 1.1rem;
       font-size: 0.9rem;
-      background: white;
-      color: var(--text);
+      background: rgba(15,23,42,0.6);
+      color: #e5e7eb;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .btn-small {
+      font-size: 0.78rem;
+      padding: 0.45rem 0.9rem;
+    }
+
+    .btn-full {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
     }
 
     .hero-footnote {
+      font-size: 0.78rem;
+      color: var(--muted);
+      max-width: 34rem;
+    }
+
+    .hero-footnote strong {
+      color: #e5e7eb;
+    }
+
+    /* Programs / Treatment categories */
+    .programs {
+      margin-top: 2rem;
+      background: rgba(15,23,42,0.9);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 1.3rem 1.4rem 1.5rem;
+      box-shadow: 0 18px 45px rgba(15,23,42,0.9);
+    }
+
+    .programs h2 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .programs-subtitle {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .program-card {
+      background: radial-gradient(circle at top left,rgba(30,64,175,0.6),rgba(15,23,42,0.96));
+      border-radius: 1rem;
+      padding: 0.85rem;
+      border: 1px solid rgba(148,163,184,0.5);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .program-image {
+      width: 100%;
+      height: 120px;
+      border-radius: 0.8rem;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 0.4rem;
+      background-color: #1f2937;
+      box-shadow: inset 0 0 0 1px rgba(15,23,42,0.6);
+    }
+
+    /* Replace these URLs with your real images */
+    .img-glp1 {
+      background-image: url("/images/glp1-medication.jpg");
+    }
+    .img-telemedicine {
+      background-image: url("/images/telemedicine-consult.jpg");
+    }
+    .img-shipping {
+      background-image: url("/images/discreet-shipping.jpg");
+    }
+    .img-hrt-men {
+      background-image: url("/images/hrt-men.jpg");
+    }
+    .img-hrt-women {
+      background-image: url("/images/hrt-women.jpg");
+    }
+    .img-ed {
+      background-image: url("/images/ed-treatment.jpg");
+    }
+
+    .program-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .program-text {
       font-size: 0.8rem;
       color: var(--muted);
     }
 
-    .hero-footnote strong {
-      color: var(--primary);
-    }
-
     /* Right column – market selector + pricing */
     .panel {
-      background: var(--card-bg);
+      background: rgba(15,23,42,0.95);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-soft);
       padding: 1.4rem 1.4rem 1.6rem;
-      border: 1px solid rgba(15, 23, 42, 0.04);
+      border: 1px solid rgba(148,163,184,0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 0 0, rgba(59,130,246,0.2), transparent 60%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .panel-inner {
+      position: relative;
+      z-index: 1;
     }
 
     .panel-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
       gap: 0.75rem;
     }
 
     .panel-header h2 {
-      font-size: 1rem;
-      font-weight: 700;
+      font-size: 0.95rem;
+      font-weight: 600;
     }
 
     .market-selector {
@@ -221,15 +372,16 @@
 
     .market-btn {
       border-radius: 999px;
-      border: 1px solid var(--border);
-      background: #f8fafc;
-      padding: 0.25rem 0.8rem;
-      font-size: 0.8rem;
+      border: 1px solid rgba(148,163,184,0.6);
+      background: rgba(15,23,42,0.8);
+      padding: 0.22rem 0.75rem;
+      font-size: 0.78rem;
       display: flex;
       align-items: center;
       gap: 0.35rem;
       cursor: pointer;
       color: var(--muted);
+      backdrop-filter: blur(10px);
     }
 
     .market-btn span.flag {
@@ -237,14 +389,14 @@
     }
 
     .market-btn.active {
-      background: var(--primary-light);
-      border-color: var(--primary);
-      color: var(--primary);
+      background: radial-gradient(circle at 0 0,#22c1c3,#4f46e5);
+      border-color: transparent;
+      color: #f9fafb;
       font-weight: 600;
     }
 
     .market-meta {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--muted);
       margin-bottom: 0.8rem;
     }
@@ -252,80 +404,95 @@
     .pricing-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr);
-      gap: 0.75rem;
-      margin-bottom: 0.8rem;
+      gap: 0.7rem;
+      margin-bottom: 0.9rem;
     }
 
     .price-card {
       border-radius: 1rem;
-      border: 1px solid var(--border);
-      padding: 0.85rem 0.9rem;
-      background: #f9fafb;
+      border: 1px solid rgba(148,163,184,0.5);
+      padding: 0.8rem 0.85rem;
+      background: rgba(15,23,42,0.95);
     }
 
     .price-card.highlight {
-      background: var(--primary-light);
-      border-color: var(--primary);
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 1px rgba(56,189,248,0.5);
     }
 
     .price-title {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      font-size: 0.9rem;
-      margin-bottom: 0.15rem;
+      align-items: center;
+      font-size: 0.88rem;
+      margin-bottom: 0.2rem;
     }
 
     .pill-tag {
-      font-size: 0.7rem;
-      padding: 0.15rem 0.5rem;
+      font-size: 0.68rem;
+      padding: 0.12rem 0.5rem;
       border-radius: 999px;
-      border: 1px solid rgba(15, 23, 42, 0.08);
-      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(148,163,184,0.7);
+      background: rgba(15,23,42,0.9);
       color: var(--muted);
     }
 
     .price-main {
       font-size: 1.1rem;
       font-weight: 700;
-      margin-bottom: 0.1rem;
-      color: #020617;
+      margin-bottom: 0.08rem;
     }
 
     .price-sub {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       color: var(--muted);
     }
 
     .price-note {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       color: var(--muted);
-      margin-top: 0.35rem;
+      margin-top: 0.3rem;
     }
 
     .market-footer {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       color: var(--muted);
-      border-top: 1px dashed var(--border);
+      border-top: 1px dashed rgba(51,65,85,0.9);
       padding-top: 0.6rem;
-      margin-top: 0.4rem;
+      margin-top: 0.3rem;
     }
 
     .market-footer strong {
-      color: var(--primary);
+      color: #e5e7eb;
     }
 
-    /* How it works */
-    .how-it-works {
-      margin-top: 2.5rem;
-      background: white;
+    .checkout-actions {
+      margin-top: 0.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .checkout-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* How it works & video */
+    .how-it-works,
+    .video-section {
+      margin-top: 2.4rem;
+      background: rgba(15,23,42,0.96);
       border-radius: var(--radius-lg);
-      padding: 1.3rem 1.4rem 1.5rem;
+      padding: 1.3rem 1.5rem 1.5rem;
       border: 1px solid var(--border);
+      box-shadow: 0 20px 50px rgba(15,23,42,0.85);
     }
 
-    .how-it-works h3 {
-      font-size: 1rem;
+    .how-it-works h2,
+    .video-section h2 {
+      font-size: 0.95rem;
       margin-bottom: 0.6rem;
     }
 
@@ -336,15 +503,16 @@
     }
 
     .step {
-      font-size: 0.87rem;
+      font-size: 0.82rem;
+      color: var(--muted);
     }
 
     .step-number {
       width: 1.4rem;
       height: 1.4rem;
       border-radius: 999px;
-      background: var(--primary-light);
-      color: var(--primary);
+      background: radial-gradient(circle at 0 0,#22c1c3,#4f46e5);
+      color: #020617;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -355,23 +523,31 @@
 
     .step-title {
       font-weight: 600;
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.1rem;
+      color: #e5e7eb;
     }
 
-    /* NP / Partner CTA */
-    .np-cta {
-      margin-top: 1.6rem;
-      font-size: 0.85rem;
+    .video-body {
+      font-size: 0.84rem;
       color: var(--muted);
+      margin-bottom: 0.8rem;
     }
 
-    .np-cta strong {
-      color: #111827;
+    .video-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.45rem;
     }
 
-    .np-cta a {
-      color: var(--accent);
-      font-weight: 600;
+    footer {
+      margin-top: 2.2rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer p {
+      margin-bottom: 0.3rem;
     }
   </style>
 </head>
@@ -380,177 +556,260 @@
     <header>
       <div class="logo">
         <div class="logo-badge">BV</div>
-        <span>BioTech Ventures Telehealth</span>
+        <span>BioTech Ventures Portal</span>
       </div>
       <nav>
-        <a href="#programs">Programs</a>
-        <a href="#markets">Markets</a>
-        <a href="#how-it-works">How it works</a>
-        <a href="#providers" class="btn-outline">Nurse / Doctor Login</a>
+        <a href="#pricing">Select Country</a>
+        <a href="#other-treatments">Programs</a>
+        <a href="#how-it-works">Flow</a>
+        <a href="#video-consults" class="btn-outline">Video Room</a>
       </nav>
     </header>
 
-    <main>
-      <!-- Left: Hero copy -->
+    <!-- HERO + PROGRAM GRID + PRICING PANEL -->
+    <main class="hero-layout">
+      <!-- Left: hero + program categories -->
       <section>
-        <div class="hero-kicker">Global cash-pay video telehealth</div>
+        <div class="hero-kicker">Multi-market GLP-1 telehealth hub</div>
         <h1 class="hero-title">
-          Weight loss & HRT programs across the USA, UAE & Germany.
+          One portal, three markets.<br />
+          <span class="gradient">USA · UAE · Germany</span>
         </h1>
         <p class="hero-subtitle">
-          One subscription platform. Local pricing in each country. All care delivered by
-          licensed providers through secure video visits and approved pharmacies.
+          This is the internal patient portal for BioTech Ventures. Select your country, complete intake,
+          and route into a compliant GLP-1 or HRT program with all-inclusive monthly pricing.
         </p>
 
         <div class="hero-badges">
-          <div class="hero-badge">GLP-1 Weight Loss (Semaglutide / Tirzepatide)</div>
-          <div class="hero-badge">Hormone Replacement (HRT)</div>
-          <div class="hero-badge">Cash-pay only – no insurance</div>
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span> GLP-1 programs from <strong>$299/month</strong> (USA)
+          </div>
+          <div class="hero-badge">
+            <span class="hero-badge-dot" style="background:#38bdf8;"></span> Local pricing in AED / EUR for UAE & Germany
+          </div>
+          <div class="hero-badge">
+            <span class="hero-badge-dot" style="background:#f97316;"></span> Stripe global payment + encrypted video consults
+          </div>
         </div>
 
         <div class="hero-actions">
-          <button class="btn-primary" onclick="document.getElementById('markets').scrollIntoView({behavior:'smooth'})">
-            View pricing by country
+          <button class="btn-primary" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">
+            Choose country & view pricing
           </button>
           <button class="btn-ghost" onclick="document.getElementById('how-it-works').scrollIntoView({behavior:'smooth'})">
-            How the video visit works
+            See telehealth workflow
           </button>
         </div>
 
         <p class="hero-footnote">
-          <strong>Note:</strong> All medications are dispensed by licensed 503A/503B or EU-authorized pharmacies.
-          BioTech Ventures itself is a technology and telehealth coordination platform.
+          <strong>Platform note:</strong> BioTech Ventures is a technology and coordination portal. All prescriptions,
+          dosing decisions, and clearances are made exclusively by licensed providers in each market, using approved pharmacies.
         </p>
 
-        <div id="programs" class="how-it-works" style="margin-top:2rem;">
-          <h3>Programs we offer through our providers</h3>
-          <div class="steps">
-            <div class="step">
-              <div class="step-number">1</div>
-              <div class="step-title">Weight Loss Programs</div>
-              <p>GLP-1 medications (like semaglutide and tirzepatide) with structured coaching and monthly follow-ups.</p>
+        <!-- Programs / Treatment categories with images -->
+        <section id="other-treatments" class="programs">
+          <h2>Programs routed through this portal</h2>
+          <p class="programs-subtitle">
+            These categories are available where permitted by local law and pharmacy partners. Specific options may differ by country.
+          </p>
+          <div class="program-grid">
+            <div class="program-card">
+              <div class="program-image img-glp1"></div>
+              <div class="program-title">GLP-1 Weight Management</div>
+              <div class="program-text">
+                Semaglutide and tirzepatide-based GLP-1 programs, all-inclusive monthly pricing and dose-titration managed via telehealth.
+              </div>
             </div>
-            <div class="step">
-              <div class="step-number">2</div>
-              <div class="step-title">Hormone & Longevity</div>
-              <p>Men’s and women’s hormone optimization, metabolic health, and basic longevity protocols.</p>
+
+            <div class="program-card">
+              <div class="program-image img-telemedicine"></div>
+              <div class="program-title">Telemedicine Consults</div>
+              <div class="program-text">
+                Encrypted video visits for intake, treatment approvals, and follow-up. No in-person clinic required.
+              </div>
             </div>
-            <div class="step">
-              <div class="step-number">3</div>
-              <div class="step-title">Add-on Wellness</div>
-              <p>Optional vitamin, peptide, and recovery add-ons depending on local rules for each market.</p>
+
+            <div class="program-card">
+              <div class="program-image img-shipping"></div>
+              <div class="program-title">Medication & Shipping</div>
+              <div class="program-text">
+                Partner pharmacies dispense medication and arrange discreet delivery; cadence (30–90 days) is set per protocol.
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- Right: Market selector + pricing -->
-      <aside>
-        <section id="markets" class="panel">
-          <div class="panel-header">
-            <h2>Market-specific pricing</h2>
-            <div class="market-selector">
-              <button class="market-btn active" data-market="usa">
-                <span class="flag">🇺🇸</span><span>USA</span>
-              </button>
-              <button class="market-btn" data-market="uae">
-                <span class="flag">🇦🇪</span><span>UAE</span>
-              </button>
-              <button class="market-btn" data-market="germany">
-                <span class="flag">🇩🇪</span><span>Germany</span>
-              </button>
+            <div class="program-card">
+              <div class="program-image img-hrt-men"></div>
+              <div class="program-title">HRT for Men</div>
+              <div class="program-text">
+                Testosterone and supporting protocols (where compliant), based on labs and telehealth follow-up.
+              </div>
             </div>
-          </div>
 
-          <div class="market-meta" id="market-meta">
-            <!-- Filled by JS -->
-          </div>
+            <div class="program-card">
+              <div class="program-image img-hrt-women"></div>
+              <div class="program-title">HRT for Women</div>
+              <div class="program-text">
+                Menopause-focused hormone optimization, built for mood, energy, and long-term quality of life.
+              </div>
+            </div>
 
-          <div class="pricing-grid" id="pricing-grid">
-            <!-- Filled by JS -->
-          </div>
-
-          <div class="market-footer" id="market-footer">
-            <!-- Filled by JS -->
+            <div class="program-card">
+              <div class="program-image img-ed"></div>
+              <div class="program-title">ED & Performance</div>
+              <div class="program-text">
+                ED protocols including sildenafil, tadalafil, and custom compounds where allowed, shipped directly from pharmacies.
+              </div>
+            </div>
           </div>
         </section>
+      </section>
 
-        <section id="how-it-works" class="how-it-works">
-          <h3>How video telehealth works with BioTech Ventures</h3>
-          <div class="steps">
-            <div class="step">
-              <div class="step-number">1</div>
-              <div class="step-title">Short intake form</div>
-              <p>Choose your country, answer a few medical questions, and upload ID if required by local rules.</p>
+      <!-- Right: multi-market pricing + Stripe checkout -->
+      <aside id="pricing">
+        <section class="panel">
+          <div class="panel-inner">
+            <div class="panel-header">
+              <h2>Market routing & pricing</h2>
+              <div class="market-selector">
+                <button class="market-btn active" data-market="usa">
+                  <span class="flag">🇺🇸</span><span>USA</span>
+                </button>
+                <button class="market-btn" data-market="uae">
+                  <span class="flag">🇦🇪</span><span>UAE</span>
+                </button>
+                <button class="market-btn" data-market="germany">
+                  <span class="flag">🇩🇪</span><span>Germany</span>
+                </button>
+              </div>
             </div>
-            <div class="step">
-              <div class="step-number">2</div>
-              <div class="step-title">Video visit with a provider</div>
-              <p>Meet a licensed NP or doctor in your country. They review your history, goals, and labs (if available).</p>
-            </div>
-            <div class="step">
-              <div class="step-number">3</div>
-              <div class="step-title">Medication & delivery</div>
-              <p>If clinically appropriate, prescriptions are sent to our partner pharmacy and shipped directly to you.</p>
-            </div>
-            <div class="step">
-              <div class="step-number">4</div>
-              <div class="step-title">Monthly follow-ups</div>
-              <p>Quick video or chat check-ins each month to adjust dose, track results, and keep you accountable.</p>
-            </div>
-          </div>
 
-          <div class="np-cta" id="providers">
-            <p>
-              <strong>Are you a nurse practitioner or doctor?</strong><br />
-              Join our telehealth network in the USA, UAE or Germany. Email us at
-              <a href="mailto:support@bio-techventures.com">support@bio-techventures.com</a>
-              to request the NP/MD onboarding packet.
-            </p>
+            <div class="market-meta" id="market-meta"></div>
+            <div class="pricing-grid" id="pricing-grid"></div>
+
+            <div class="checkout-actions">
+              <a id="stripe-core" class="btn-primary btn-full btn-small" href="#" target="_blank" rel="noopener">
+                Enroll in Core Plan via Stripe
+              </a>
+              <a id="stripe-advanced" class="btn-ghost btn-full btn-small" href="#" target="_blank" rel="noopener">
+                Enroll in Advanced Plan via Stripe
+              </a>
+              <p class="checkout-note">
+                Final pricing, taxes, and currency handling are completed inside Stripe for your selected country.
+              </p>
+            </div>
+
+            <div class="market-footer" id="market-footer"></div>
           </div>
         </section>
       </aside>
     </main>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="how-it-works">
+      <h2>Telehealth workflow inside the BioTech Ventures portal</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-title">Select country & complete intake</div>
+          <p>
+            Choose USA, UAE, or Germany so the portal routes you to the correct licensed provider and pharmacy stack.
+            Complete a secure medical questionnaire and upload ID/labs where needed.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-title">Pay via Stripe & schedule</div>
+          <p>
+            Use Stripe’s international checkout in your local currency. Once payment is confirmed, a video consult slot is
+            unlocked with a licensed provider.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-title">Video consult & protocol activation</div>
+          <p>
+            Join your encrypted video visit from any device. If clinically appropriate, your provider activates a GLP-1,
+            HRT, or ED protocol with pharmacy fulfillment.
+          </p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-title">Refills & ongoing adjustments</div>
+          <p>
+            Follow-up is managed via short video or asynchronous check-ins. The same portal and Stripe links handle renewals
+            and dose titrations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO CONSULT SECTION -->
+    <section id="video-consults" class="video-section">
+      <h2>Encrypted televideo access</h2>
+      <p class="video-body">
+        All visits use a secure, healthcare-grade video platform. Patients normally receive a unique invite link after
+        enrollment, but a persistent provider room is also available for internal routing and testing.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-ghost btn-small" type="button">
+          Patients: use the unique video link in your confirmation email
+        </button>
+        <!-- Replace this link with your real televideo URL (Doxy, Zoom, etc.) -->
+        <a id="video-room-link"
+           class="btn-primary btn-small"
+           href="https://doxy.me/biotechventures"
+           target="_blank"
+           rel="noopener">
+          Open provider video room
+        </a>
+      </div>
+      <p class="video-note">
+        If you are a patient and do not see your link, please check your email spam folder or contact support for a new invite.
+      </p>
+    </section>
+
+    <footer>
+      <p>
+        Disclaimer: This portal does not replace emergency care. All programs require approval by licensed providers
+        in the applicable jurisdiction. Medication options and availability vary by country and pharmacy partner.
+      </p>
+      <p>© 2025 BioTech Ventures. All rights reserved.</p>
+    </footer>
   </div>
 
   <script>
     // ============================
-    // Market configuration
+    // Market configuration – ALL pricing in one place
     // ============================
-    // To add a new market:
-    // 1. Add a new object in the "markets" constant below.
-    // 2. Add a matching <button class="market-btn" data-market="key"> in the HTML.
-    // The pricing section will update automatically.
     const markets = {
       usa: {
         name: "United States",
         flag: "🇺🇸",
         currencyCode: "USD",
         currencySymbol: "$",
-        fxToUsd: 1, // 1 USD = 1 USD
-        tagline: "Cash-pay video consults with US-licensed NPs. Medication included in subscription pricing.",
-        consult: {
-          label: "Initial video consult",
-          priceLocal: 100
-        },
-        followUp: {
-          label: "Monthly follow-up visit",
-          priceLocal: 25
-        },
+        fxToUsd: 1,
+        tagline:
+          "Patients physically located in the USA pay in USD. Programs run via US-licensed providers and partner pharmacies.",
         plans: [
           {
-            name: "Starter GLP-1 Plan",
-            localPrice: 499,
-            note: "Entry-tier compounded semaglutide for appropriate patients."
+            key: "core",
+            name: "Core GLP-1 Plan",
+            localPrice: 299,
+            note: "Starting GLP-1 protocol for eligible patients. Includes intake, video consults, and medication when prescribed."
           },
           {
-            name: "Full-Dose GLP-1 Plan",
-            localPrice: 599,
-            note: "Higher-dose or tirzepatide pathways where clinically appropriate."
+            key: "advanced",
+            name: "Advanced GLP-1 Plan",
+            localPrice: 399,
+            note: "Higher-dose or tirzepatide-based GLP-1 with tighter follow-up cadence and protocol adjustments."
           }
         ],
+        stripe: {
+          core: "https://buy.stripe.com/YOUR_US_CORE_PLAN_LINK_HERE",
+          advanced: "https://buy.stripe.com/YOUR_US_ADVANCED_PLAN_LINK_HERE"
+        },
         footer:
-          "All US payments are processed in USD. Patients see final prices in dollars; this is a cash-pay telehealth program, not insurance-based care."
+          "All prices shown are in USD. Exact amounts charged and any taxes are confirmed in Stripe before you complete payment."
       },
 
       uae: {
@@ -558,33 +817,29 @@
         flag: "🇦🇪",
         currencyCode: "AED",
         currencySymbol: "AED",
-        // Approximate: 1 AED ≈ 0.27 USD – you can update at any time
-        fxToUsd: 0.27,
-        tagline: "Dubai- and UAE-based patients pay in dirhams. Video visits with DHA/MOHAP-approved providers.",
-        consult: {
-          label: "Initial video consult",
-          // Set to the local equivalent of about $100
-          priceLocal: 365
-        },
-        followUp: {
-          label: "Monthly follow-up visit",
-          // Local equivalent of about $25
-          priceLocal: 90
-        },
+        fxToUsd: 0.27, // approximate
+        tagline:
+          "Dubai/UAE routing uses local providers and MOHAP/DHA-compliant pharmacies. Billing occurs in dirhams via Stripe.",
         plans: [
           {
+            key: "core",
             name: "GLP-1 Slim Program",
-            localPrice: 1800,
-            note: "Approx. 1-month supply of GLP-1 medication (semaglutide/tirzepatide equivalent) with monitoring."
+            localPrice: 1850,
+            note: "Approx. 1-month GLP-1 supply for qualifying patients, including intake, video care, and ongoing monitoring."
           },
           {
-            name: "Premium Slim + HRT",
-            localPrice: 2350,
-            note: "Combined weight loss + hormone optimization package for qualifying patients."
+            key: "advanced",
+            name: "Elite Slim + HRT Program",
+            localPrice: 2390,
+            note: "Combined GLP-1 and hormone-oriented protocol for patients cleared for multi-axis optimization."
           }
         ],
+        stripe: {
+          core: "https://buy.stripe.com/YOUR_UAE_CORE_PLAN_LINK_HERE",
+          advanced: "https://buy.stripe.com/YOUR_UAE_ADVANCED_PLAN_LINK_HERE"
+        },
         footer:
-          "All UAE payments are processed in AED. For internal reporting you can track the USD equivalents shown here, but patients only see AED pricing."
+          "All prices shown are in AED. Stripe will present AED amounts plus any applicable fees or taxes at checkout."
       },
 
       germany: {
@@ -592,41 +847,42 @@
         flag: "🇩🇪",
         currencyCode: "EUR",
         currencySymbol: "€",
-        // Approximate: 1 EUR ≈ 1.10 USD – update as needed
-        fxToUsd: 1.10,
-        tagline: "German patients pay in euros. Prescriptions written by German-licensed physicians; meds via EU-authorized pharmacies.",
-        consult: {
-          label: "Erstberatung per Videosprechstunde",
-          priceLocal: 100
-        },
-        followUp: {
-          label: "Monatliche Verlaufskontrolle",
-          priceLocal: 25
-        },
+        fxToUsd: 1.10, // approximate
+        tagline:
+          "German routing uses telemedicine with German-licensed physicians and EU-authorized GLP-1 pharmacies.",
         plans: [
           {
-            name: "Basis GLP-1 Programm",
+            key: "core",
+            name: "Basis GLP-1 Monatspaket",
             localPrice: 449,
-            note: "Einstiegspaket mit GLP-1-Therapie für geeignete Patienten."
+            note: "Cash-pay GLP-1 Programm inkl. Erstaufnahme, Videosprechstunde und Basisdosierung für geeignete Patienten."
           },
           {
-            name: "Komplett GLP-1 Programm",
+            key: "advanced",
+            name: "Komplett GLP-1 Monatspaket",
             localPrice: 549,
-            note: "Erweitertes Programm mit höherer Dosis und engerer Betreuung."
+            note: "Erweitertes Protokoll mit höherer Dosis, engerem Monitoring und flexibler Anpassung durch den Arzt."
           }
         ],
+        stripe: {
+          core: "https://buy.stripe.com/YOUR_GERMANY_CORE_PLAN_LINK_HERE",
+          advanced: "https://buy.stripe.com/YOUR_GERMANY_ADVANCED_PLAN_LINK_HERE"
+        },
         footer:
-          "All German payments are processed in EUR through BioTech Ventures’ local billing partners. We display USD equivalents internally, but not to patients."
+          "All prices shown are in EUR. Stripe confirms final billing amounts before you approve payment."
       }
     };
 
     function formatMoney(value, symbol, code) {
-      return `${symbol}${value.toLocaleString(undefined, { maximumFractionDigits: 0 })} ${code}`;
+      if (code === "AED") {
+        return value.toLocaleString(undefined, { maximumFractionDigits: 0 }) + " " + code;
+      }
+      return symbol + value.toLocaleString(undefined, { maximumFractionDigits: 0 }) + " " + code;
     }
 
     function formatUsdEquivalent(valueLocal, fxToUsd) {
       const usd = valueLocal * fxToUsd;
-      return `≈ $${usd.toFixed(0)} USD`;
+      return "≈ $" + usd.toFixed(0) + " USD";
     }
 
     function renderMarketPricing(marketKey) {
@@ -636,73 +892,55 @@
       const metaEl = document.getElementById("market-meta");
       const gridEl = document.getElementById("pricing-grid");
       const footerEl = document.getElementById("market-footer");
+      const stripeCoreBtn = document.getElementById("stripe-core");
+      const stripeAdvancedBtn = document.getElementById("stripe-advanced");
 
-      const consultLocal = formatMoney(
-        data.consult.priceLocal,
-        data.currencySymbol === "AED" ? "" : data.currencySymbol,
-        data.currencyCode
-      );
+      metaEl.textContent =
+        data.name +
+        " • Local currency: " +
+        data.currencyCode +
+        " • " +
+        data.tagline;
 
-      const followLocal = formatMoney(
-        data.followUp.priceLocal,
-        data.currencySymbol === "AED" ? "" : data.currencySymbol,
-        data.currencyCode
-      );
-
-      const consultUsd = formatUsdEquivalent(data.consult.priceLocal, data.fxToUsd);
-      const followUsd = formatUsdEquivalent(data.followUp.priceLocal, data.fxToUsd);
-
-      metaEl.textContent = `${data.name} • Local currency: ${data.currencyCode} • Video telehealth only`;
-
-      gridEl.innerHTML = `
-        <div class="price-card highlight">
-          <div class="price-title">
-            <span>${data.consult.label}</span>
-            <span class="pill-tag">One-time</span>
-          </div>
-          <div class="price-main">${consultLocal}</div>
-          <div class="price-sub">${consultUsd}</div>
-          <p class="price-note">
-            Billed once when you meet your provider on video and they review your history and goals.
-          </p>
-        </div>
-
-        <div class="price-card">
-          <div class="price-title">
-            <span>${data.followUp.label}</span>
-            <span class="pill-tag">Monthly</span>
-          </div>
-          <div class="price-main">${followLocal}</div>
-          <div class="price-sub">${followUsd}</div>
-          <p class="price-note">
-            Required in all markets for safe dose adjustments, side effect checks, and progress tracking.
-          </p>
-        </div>
-
-        ${data.plans
-          .map((plan) => {
-            const localStr = formatMoney(
-              plan.localPrice,
-              data.currencySymbol === "AED" ? "" : data.currencySymbol,
-              data.currencyCode
-            );
-            const usdStr = formatUsdEquivalent(plan.localPrice, data.fxToUsd);
-            return `
-              <div class="price-card">
-                <div class="price-title">
-                  <span>${plan.name}</span>
-                  <span class="pill-tag">All-in monthly</span>
-                </div>
-                <div class="price-main">${localStr}</div>
-                <div class="price-sub">${usdStr}</div>
-                <p class="price-note">${plan.note || ""}</p>
+      gridEl.innerHTML = data.plans
+        .map((plan, index) => {
+          const localStr = formatMoney(
+            plan.localPrice,
+            data.currencySymbol,
+            data.currencyCode
+          );
+          const usdStr = formatUsdEquivalent(plan.localPrice, data.fxToUsd);
+          const highlightClass = index === 0 ? "price-card highlight" : "price-card";
+          const tag = index === 0 ? "Core GLP-1" : "Advanced GLP-1";
+          return `
+            <div class="${highlightClass}">
+              <div class="price-title">
+                <span>${plan.name}</span>
+                <span class="pill-tag">${tag}</span>
               </div>
-            `;
-          })
-          .join("")}
-      `;
+              <div class="price-main">${localStr}</div>
+              <div class="price-sub">${usdStr}</div>
+              <p class="price-note">${plan.note || ""}</p>
+            </div>
+          `;
+        })
+        .join("");
 
       footerEl.textContent = data.footer;
+
+      if (data.stripe) {
+        const corePlan = data.plans.find((p) => p.key === "core");
+        const advPlan = data.plans.find((p) => p.key === "advanced");
+
+        stripeCoreBtn.href = data.stripe.core || "#";
+        stripeAdvancedBtn.href = data.stripe.advanced || "#";
+
+        stripeCoreBtn.textContent = `Enroll in ${corePlan ? corePlan.name : "Core GLP-1 Plan"} via Stripe`;
+        stripeAdvancedBtn.textContent = `Enroll in ${advPlan ? advPlan.name : "Advanced GLP-1 Plan"} via Stripe`;
+      } else {
+        stripeCoreBtn.href = "#";
+        stripeAdvancedBtn.href = "#";
+      }
     }
 
     function setActiveMarketButton(marketKey) {
@@ -713,10 +951,8 @@
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-      // Initial render
       renderMarketPricing("usa");
 
-      // Wire up buttons
       document.querySelectorAll(".market-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
           const marketKey = btn.getAttribute("data-market");
@@ -728,3 +964,4 @@
   </script>
 </body>
 </html>
+
