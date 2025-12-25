@@ -2,191 +2,147 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>BioTech Ventures – Global Telehealth Portal</title>
+  <title>BioTech Ventures – GLP-1 Weight Loss Telehealth Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #050816;
-      --bg-soft: #0b1020;
-      --accent: #12b4d8;
-      --accent-soft: rgba(18, 180, 216, 0.12);
-      --accent-uae: #00a58c;
-      --accent-de: #f5b200;
-      --card-bg: #0f172a;
-      --card-elevated: #111827;
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-      --border-subtle: rgba(148, 163, 184, 0.25);
-      --radius-xl: 24px;
-      --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.45);
-      --shadow-chip: 0 10px 30px rgba(0, 0, 0, 0.45);
-      --transition-fast: 180ms ease-out;
-      --transition-med: 220ms ease-out;
-      --blur-bg: blur(24px);
+      --bg: #f4f7fb;
+      --bg-soft: #ffffff;
+      --primary: #1f90ff;
+      --primary-soft: #e0f2ff;
+      --accent: #f97373;
+      --accent-soft: #ffe4e6;
+      --text-main: #0f172a;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --radius-lg: 20px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12);
     }
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #0b1220, #020617 60%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #e0f2ff, #fef9ff 45%, #f4f7fb 70%);
       color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      padding: 24px 12px 40px;
+      line-height: 1.6;
     }
 
-    .shell {
-      width: 100%;
-      max-width: 1220px;
-      background: radial-gradient(
-            circle at top left,
-            rgba(18, 180, 216, 0.25),
-            transparent 55%
-          ),
-          radial-gradient(
-            circle at bottom right,
-            rgba(94, 234, 212, 0.12),
-            transparent 55%
-          ),
-          linear-gradient(135deg, #020617, #020617);
-      border-radius: 32px;
-      padding: 24px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .shell::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        circle at top center,
-        rgba(248, 250, 252, 0.06),
-        transparent 70%
-      );
-      opacity: 0.8;
-      pointer-events: none;
-    }
-
-    .shell-inner {
-      position: relative;
-      z-index: 1;
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
     }
 
     header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 22px;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
     }
 
-    .brand {
+    .logo {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 0.6rem;
     }
 
-    .brand-mark {
-      width: 42px;
-      height: 42px;
+    .logo-mark {
+      width: 36px;
+      height: 36px;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #e0f2fe, #06b6d4 40%, #0f172a);
-      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.6),
-                  0 15px 35px rgba(8, 47, 73, 0.8);
+      background: radial-gradient(circle at 30% 20%, #bfdbfe, #1f90ff 50%, #0f172a);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 22px;
+      color: #f9fafb;
+      font-weight: 800;
+      font-size: 1rem;
+      box-shadow: 0 0 0 1px rgba(148,163,184,0.4);
     }
 
-    .brand-text {
+    .logo-text {
       display: flex;
       flex-direction: column;
-      gap: 3px;
     }
 
-    .brand-title {
-      font-weight: 650;
+    .logo-text span:first-child {
+      font-weight: 700;
+      font-size: 1rem;
       letter-spacing: 0.04em;
-      font-size: 19px;
       text-transform: uppercase;
     }
 
-    .brand-subtitle {
-      font-size: 12px;
+    .logo-text span:last-child {
+      font-size: 0.75rem;
       color: var(--text-muted);
     }
 
-    .header-actions {
+    nav {
       display: flex;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
       align-items: center;
-      gap: 10px;
+      justify-content: flex-end;
     }
 
-    .chip {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      padding: 6px 9px;
+    nav a {
+      position: relative;
+      padding-bottom: 0.1rem;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.2rem;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width 0.15s ease-out;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav-pill {
       border-radius: 999px;
-      border: 1px solid rgba(94, 234, 212, 0.45);
-      background: rgba(15, 23, 42, 0.8);
-      backdrop-filter: blur(10px);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: var(--shadow-chip);
-      white-space: nowrap;
+      border: 1px solid var(--primary);
+      padding: 0.4rem 0.9rem;
+      font-size: 0.8rem;
+      color: var(--primary);
+      background: rgba(255,255,255,0.9);
     }
 
-    .chip-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #4ade80;
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.21);
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        justify-content: flex-start;
+      }
     }
 
-    .video-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 11px;
-      border-radius: 999px;
-      font-size: 12px;
-      text-decoration: none;
-      color: var(--text-main);
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      background: rgba(15, 23, 42, 0.9);
-      backdrop-filter: blur(14px);
-      transition: background var(--transition-fast), transform var(--transition-fast),
-        box-shadow var(--transition-fast), border-color var(--transition-fast);
-    }
-
-    .video-link span.icon {
-      font-size: 13px;
-    }
-
-    .video-link:hover {
-      background: rgba(15, 23, 42, 1);
-      transform: translateY(-1px);
-      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.6);
-      border-color: var(--accent);
-    }
-
+    /* Layout */
     .layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 24px;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: stretch;
     }
 
     @media (max-width: 900px) {
@@ -195,372 +151,292 @@
       }
     }
 
-    /* Left: hero + treatments */
+    /* Hero (weight loss focused) */
     .hero {
-      background: radial-gradient(circle at top left, #020617, #020617);
-      border-radius: var(--radius-xl);
-      padding: 22px 20px 20px;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      backdrop-filter: var(--blur-bg);
+      background: linear-gradient(135deg, #ffffff, #e0f2ff 45%, #ffe4e6 100%);
+      border-radius: 1.6rem;
+      padding: 1.6rem 1.5rem 1.4rem;
+      box-shadow: var(--shadow-soft);
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-      gap: 18px;
-      align-items: center;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 780px) {
       .hero {
         grid-template-columns: minmax(0, 1fr);
       }
     }
 
-    .hero-text h1 {
-      font-size: 26px;
-      line-height: 1.25;
-      margin: 0 0 8px;
-    }
-
-    .hero-text h1 span.highlight {
-      color: var(--accent);
-    }
-
-    .hero-tagline {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 18px;
-    }
-
-    .hero-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 14px;
-    }
-
-    .hero-pill {
-      font-size: 11px;
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      background: rgba(15, 23, 42, 0.95);
-      color: var(--text-muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .hero-pill strong {
-      color: var(--text-main);
-      font-weight: 600;
-    }
-
-    .hero-metadata {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    .hero-metadata span {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .hero-metadata span b {
-      font-weight: 600;
-      color: var(--text-main);
-    }
-
-    .hero-metadata span.dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: rgba(148, 163, 184, 0.6);
-    }
-
-    .hero-image {
-      position: relative;
-      border-radius: 26px;
-      overflow: hidden;
-      min-height: 210px;
-      background: radial-gradient(circle at top left, rgba(18, 180, 216, 0.3), transparent 55%),
-                  radial-gradient(circle at bottom right, rgba(94, 234, 212, 0.25), transparent 55%),
-                  #020617;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      filter: saturate(1.02);
-      transform: scale(1.03);
-    }
-
-    .hero-image-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(15, 23, 42, 0.25),
-        rgba(15, 23, 42, 0.6)
-      );
-      mix-blend-mode: soft-light;
-      pointer-events: none;
-    }
-
-    .hero-label {
-      position: absolute;
-      left: 14px;
-      top: 14px;
-      padding: 5px 9px;
-      border-radius: 999px;
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--text-muted);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .hero-label span.badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
-
-    .treatment-strip {
-      margin-top: 14px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-      gap: 10px;
-    }
-
-    .t-card {
-      position: relative;
-      border-radius: 16px;
-      padding: 9px 9px 9px 9px;
-      overflow: hidden;
-      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.96), #020617);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 11px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      min-height: 76px;
-    }
-
-    .t-card h3 {
-      margin: 0;
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    .t-card p {
-      margin: 0;
-      color: var(--text-muted);
-    }
-
-    .t-img {
-      position: absolute;
-      inset: 0;
-      opacity: 0.28;
-      mix-blend-mode: screen;
-      background-size: cover;
-      background-position: center;
-      pointer-events: none;
-    }
-
-    .t-card-inner {
+    .hero-text {
       position: relative;
       z-index: 1;
     }
 
-    .tag {
-      display: inline-flex;
-      font-size: 9px;
-      padding: 3px 7px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.9);
+    .hero-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #f97373;
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+    }
+
+    .hero-title {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      line-height: 1.15;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(90deg,#f97373,#f97316,#1f90ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
       color: var(--text-muted);
-      margin-top: auto;
-      align-self: flex-start;
-      gap: 4px;
-      align-items: center;
+      margin-bottom: 1rem;
     }
 
-    .tag-icon {
-      font-size: 10px;
+    .hero-bullets {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 0.6rem;
+      margin-bottom: 1.1rem;
+      font-size: 0.8rem;
     }
 
-    /* Treatment image backgrounds (same for all markets) */
-    .img-glp1 {
-      background-image: url("https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?fm=jpg&q=60&w=1200");
-    }
-
-    .img-hrt {
-      background-image: url("https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?fm=jpg&q=60&w=1200");
-    }
-
-    .img-ed {
-      background-image: url("https://images.unsplash.com/photo-1524178232363-1fb2b075b655?fm=jpg&q=60&w=1200");
-    }
-
-    .img-shipping {
-      background-image: url("https://images.unsplash.com/photo-1506399302284-8f1e84c14e07?fm=jpg&q=60&w=1200");
-    }
-
-    /* Right: markets + intake */
-    .panel {
+    .hero-bullet {
       display: flex;
-      flex-direction: column;
-      gap: 16px;
+      align-items: flex-start;
+      gap: 0.45rem;
+      color: var(--text-muted);
     }
 
-    .market-select {
+    .hero-bullet span.icon {
+      font-size: 1rem;
+    }
+
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 0.7rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .btn-primary {
       border-radius: 999px;
-      padding: 6px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      backdrop-filter: blur(14px);
+      border: none;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: linear-gradient(135deg,#1f90ff,#22c55e);
+      color: white;
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.4);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-secondary {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 0.65rem 1.2rem;
+      font-size: 0.9rem;
+      background: white;
+      color: var(--text-main);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-full {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      border-radius: 1.3rem;
+      overflow: hidden;
+      background: #e5e7eb;
+      min-height: 230px;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.03);
+    }
+
+    .hero-image-tag {
+      position: absolute;
+      left: 0.8rem;
+      top: 0.8rem;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.73rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.82);
+      color: #e5e7eb;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .hero-image-tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    /* Treatments row */
+    .treatments {
+      margin-top: 1.8rem;
+    }
+
+    .treatments h2 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .treatments-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .t-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .t-card {
+      background: white;
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 14px 30px rgba(15,23,42,0.06);
+      padding: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      font-size: 0.8rem;
+    }
+
+    .t-image {
+      width: 100%;
+      height: 120px;
+      border-radius: 0.8rem;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 0.3rem;
+    }
+
+    .img-shots {
+      background-image: url("https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?fm=jpg&q=80&w=1200");
+    }
+
+    .img-lifestyle {
+      background-image: url("https://images.unsplash.com/photo-1519751138087-5a3a9033a7bf?fm=jpg&q=80&w=1200");
+    }
+
+    .img-food {
+      background-image: url("https://images.unsplash.com/photo-1514996937319-344454492b37?fm=jpg&q=80&w=1200");
+    }
+
+    .t-label {
+      font-weight: 600;
+    }
+
+    .t-tag {
+      display: inline-flex;
+      padding: 0.18rem 0.55rem;
+      font-size: 0.7rem;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: #1d4ed8;
+    }
+
+    /* Right side: pricing & market routing */
+    .panel {
+      background: var(--bg-soft);
+      border-radius: 1.6rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      padding: 1.1rem 1.1rem 1.4rem;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .panel-header h2 {
+      font-size: 0.95rem;
+    }
+
+    .market-toggle {
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
     }
 
     .market-btn {
-      flex: 1 1 auto;
-      min-width: 0;
       border-radius: 999px;
-      padding: 7px 10px;
-      font-size: 12px;
-      border: none;
-      background: transparent;
-      color: var(--text-muted);
+      border: 1px solid var(--border);
+      background: #f3f4f6;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.78rem;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 6px;
+      gap: 0.3rem;
       cursor: pointer;
-      transition: background var(--transition-fast), color var(--transition-fast),
-        box-shadow var(--transition-fast), transform var(--transition-fast);
-      white-space: nowrap;
+      color: var(--text-muted);
     }
 
     .market-btn span.flag {
-      font-size: 14px;
+      font-size: 1rem;
     }
 
     .market-btn.active {
-      background: radial-gradient(circle at top left, var(--accent-soft), #020617);
-      color: #e5e7eb;
-      box-shadow: 0 8px 25px rgba(56, 189, 248, 0.55);
-      transform: translateY(-1px);
+      background: linear-gradient(135deg,#1f90ff,#22c55e);
+      color: white;
+      border-color: transparent;
     }
 
-    .market-btn[data-market="uae"].active {
-      box-shadow: 0 8px 25px rgba(34, 197, 94, 0.55);
-    }
-
-    .market-btn[data-market="germany"].active {
-      box-shadow: 0 8px 25px rgba(245, 158, 11, 0.7);
-    }
-
-    .market-summary {
-      border-radius: var(--radius-xl);
-      padding: 14px 14px 12px;
-      background: radial-gradient(
-          circle at top left,
-          rgba(15, 23, 42, 0.9),
-          #020617
-        );
-      border: 1px solid rgba(148, 163, 184, 0.6);
-    }
-
-    .market-summary h2 {
-      margin: 0 0 6px;
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .market-summary h2 span.flag {
-      font-size: 18px;
-    }
-
-    .market-subcopy {
-      font-size: 12px;
+    .market-meta {
+      font-size: 0.78rem;
       color: var(--text-muted);
-      margin: 0;
-    }
-
-    .pricing-grid {
-      margin-top: 12px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 10px;
-    }
-
-    .price-card {
-      background: var(--card-elevated);
-      border-radius: 18px;
-      padding: 10px 11px;
-      border: 1px solid var(--border-subtle);
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .price-label {
-      font-size: 12px;
-      font-weight: 600;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 8px;
-    }
-
-    .pill-small {
-      font-size: 10px;
-      padding: 3px 7px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--text-muted);
-    }
-
-    .price-value {
-      font-size: 20px;
-      font-weight: 650;
-    }
-
-    .price-currency {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-left: 4px;
-    }
-
-    .price-note {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin: 0;
+      margin-bottom: 0.6rem;
     }
 
     .market-image {
-      margin-top: 12px;
-      border-radius: 18px;
+      width: 100%;
+      height: 130px;
+      border-radius: 1rem;
       overflow: hidden;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617);
-      max-height: 170px;
+      background: #e5e7eb;
+      margin-bottom: 0.4rem;
     }
 
     .market-image img {
@@ -568,624 +444,730 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      filter: saturate(1.02);
     }
 
-    .intake-card {
-      margin-top: 0;
-      padding: 14px 14px 12px;
-      border-radius: var(--radius-xl);
-      background: radial-gradient(circle at top left, #020617, #020617);
-      border: 1px solid rgba(148, 163, 184, 0.65);
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.7rem;
+      margin-bottom: 0.7rem;
     }
 
-    .intake-header {
+    .price-card {
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      background: #f9fafb;
+      padding: 0.8rem 0.85rem;
+      font-size: 0.8rem;
+    }
+
+    .price-card.highlight {
+      border-color: #1f90ff;
+      background: #e0f2ff;
+      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.35);
+    }
+
+    .price-head {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 8px;
+      margin-bottom: 0.25rem;
     }
 
-    .intake-header h3 {
-      margin: 0;
-      font-size: 14px;
+    .price-name {
+      font-weight: 600;
+      font-size: 0.85rem;
     }
 
-    .intake-header span {
-      font-size: 11px;
+    .price-pill {
+      font-size: 0.68rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid #bfdbfe;
+      color: #1d4ed8;
+    }
+
+    .price-main {
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .price-sub {
+      font-size: 0.76rem;
       color: var(--text-muted);
     }
 
-    form {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 8px;
-      margin-top: 6px;
+    .price-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
     }
 
-    .field-group {
+    .panel-actions {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 0.4rem;
+      margin-top: 0.3rem;
     }
 
-    label {
-      font-size: 11px;
+    .panel-note {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* Results strip */
+    .results {
+      margin-top: 2.4rem;
+      background: white;
+      border-radius: 1.4rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 26px rgba(15,23,42,0.08);
+      padding: 1.1rem 1.2rem 1.3rem;
+    }
+
+    .results-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.6rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .results-header h2 {
+      font-size: 0.98rem;
+    }
+
+    .results-header span {
+      font-size: 0.78rem;
       color: var(--text-muted);
     }
 
-    input,
-    select {
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.95);
-      color: var(--text-main);
-      padding: 7px 11px;
-      font-size: 13px;
-      outline: none;
-    }
-
-    input::placeholder {
-      color: rgba(148, 163, 184, 0.7);
-    }
-
-    select {
-      appearance: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      background-image: linear-gradient(45deg, transparent 50%, #64748b 50%),
-        linear-gradient(135deg, #64748b 50%, transparent 50%);
-      background-position: calc(100% - 18px) 11px, calc(100% - 14px) 11px;
-      background-size: 5px 5px;
-      background-repeat: no-repeat;
-    }
-
-    .form-row-inline {
+    .results-grid {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 8px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.9rem;
+      font-size: 0.8rem;
     }
 
-    @media (max-width: 640px) {
-      .form-row-inline {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .primary-actions {
+    .result-card {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 8px;
-      margin-top: 4px;
+      grid-template-columns: 60px minmax(0, 1fr);
+      gap: 0.6rem;
+      align-items: center;
     }
 
-    @media (max-width: 640px) {
-      .primary-actions {
-        grid-template-columns: 1fr;
-      }
+    .result-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 0.9rem;
+      background-size: cover;
+      background-position: center;
     }
 
-    .btn-primary,
-    .btn-secondary {
+    .res-scale {
+      background-image: url("https://images.unsplash.com/photo-1522844990619-4951c40f7eda?fm=jpg&q=80&w=600");
+    }
+
+    .res-jeans {
+      background-image: url("https://images.unsplash.com/photo-1542272604-787c3835535d?fm=jpg&q=80&w=600");
+    }
+
+    .res-energy {
+      background-image: url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438?fm=jpg&q=80&w=600");
+    }
+
+    .res-note {
+      color: var(--text-muted);
+    }
+
+    .res-label {
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    /* How it works */
+    .how {
+      margin-top: 2.4rem;
+      background: white;
+      border-radius: 1.4rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 26px rgba(15,23,42,0.08);
+      padding: 1.2rem 1.2rem 1.3rem;
+    }
+
+    .how h2 {
+      font-size: 0.98rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.9rem;
+      font-size: 0.8rem;
+    }
+
+    .how-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+      color: var(--text-muted);
+    }
+
+    .how-step-number {
+      width: 1.4rem;
+      height: 1.4rem;
       border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      padding: 9px 12px;
-      font-size: 13px;
-      font-weight: 500;
-      display: inline-flex;
+      background: linear-gradient(135deg,#1f90ff,#22c55e);
+      color: white;
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: background var(--transition-med), transform var(--transition-med),
-        box-shadow var(--transition-med), color var(--transition-med);
+      font-size: 0.78rem;
+      font-weight: 700;
+      flex-shrink: 0;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #06b6d4, #22c55e);
-      color: #0b1120;
-      box-shadow: 0 18px 35px rgba(34, 197, 94, 0.6);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 22px 45px rgba(34, 197, 94, 0.85);
-    }
-
-    .btn-secondary {
-      background: rgba(15, 23, 42, 0.95);
+    .how-step strong {
       color: var(--text-main);
-      border: 1px solid rgba(148, 163, 184, 0.7);
     }
 
-    .btn-secondary:hover {
-      background: rgba(15, 23, 42, 1);
-      transform: translateY(-1px);
-      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.9);
+    /* FAQ */
+    .faq {
+      margin-top: 2.2rem;
+      background: white;
+      border-radius: 1.4rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 22px rgba(15,23,42,0.06);
+      padding: 1.1rem 1.2rem 1.2rem;
+      font-size: 0.84rem;
     }
 
-    .disclaimer {
-      margin-top: 8px;
-      font-size: 11px;
+    .faq h2 {
+      font-size: 0.98rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .faq details {
+      border-radius: 0.9rem;
+      border: 1px solid #e5e7eb;
+      padding: 0.55rem 0.7rem;
+      margin-bottom: 0.4rem;
+      background: #f9fafb;
+    }
+
+    .faq summary {
+      cursor: pointer;
+      list-style: none;
+      font-weight: 600;
+      font-size: 0.84rem;
+    }
+
+    .faq summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq summary::after {
+      content: "+";
+      float: right;
+      font-weight: 500;
+      color: #9ca3af;
+    }
+
+    .faq details[open] summary::after {
+      content: "–";
+    }
+
+    .faq p {
+      margin-top: 0.4rem;
       color: var(--text-muted);
-      line-height: 1.45;
-    }
-
-    .disclaimer b {
-      color: var(--text-main);
+      font-size: 0.8rem;
     }
 
     footer {
-      margin-top: 14px;
-      font-size: 10px;
+      margin-top: 1.7rem;
+      font-size: 0.72rem;
       color: var(--text-muted);
-      text-align: right;
+      text-align: center;
+    }
+
+    footer a {
+      color: #1f90ff;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
     }
   </style>
 </head>
 <body>
-  <div class="shell">
-    <div class="shell-inner">
-      <header>
-        <div class="brand">
-          <div class="brand-mark">BV</div>
-          <div class="brand-text">
-            <div class="brand-title">BioTech Ventures</div>
-            <div class="brand-subtitle">
-              Global telehealth portal – USA · UAE · Germany
-            </div>
-          </div>
+  <div class="page">
+    <header>
+      <div class="logo">
+        <div class="logo-mark">BV</div>
+        <div class="logo-text">
+          <span>BioTech Ventures</span>
+          <span>GLP-1 weight loss telehealth portal</span>
         </div>
-        <div class="header-actions">
-          <div class="chip">
-            <span class="chip-dot"></span>
-            LIVE VIDEO • GLP-1 & HRT
-          </div>
-          <a
-            id="header-video-link"
-            class="video-link"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="icon">🎥</span>
-            Start secure TeleVideo (USA)
-          </a>
-        </div>
-      </header>
+      </div>
+      <nav>
+        <a href="#results">Results</a>
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#pricing" class="nav-pill">Start now</a>
+      </nav>
+    </header>
 
-      <div class="layout">
-        <!-- Left: Hero + treatments -->
+    <main class="layout">
+      <!-- LEFT: Hero + treatments -->
+      <section>
         <section class="hero">
           <div class="hero-text">
-            <h1>
-              Female-first
-              <span class="highlight">video telehealth</span><br />
-              for weight loss & HRT
+            <div class="hero-kicker">GLP-1 telehealth • USA • UAE • Germany</div>
+            <h1 class="hero-title">
+              Lose weight <span class="highlight">without losing your life.</span>
             </h1>
-            <p class="hero-tagline">
-              One secure portal for USA, UAE (Dubai-led), and Germany (Berlin hub).
-              Simple pricing, real medications, licensed providers – all online.
+            <p class="hero-subtitle">
+              One simple portal for GLP-1 weight loss programs. You pick your country,
+              complete a quick intake, pay via Stripe, and meet a licensed provider
+              over secure video.
             </p>
 
-            <div class="hero-pills">
-              <div class="hero-pill">
-                💉 <strong>GLP-1 weight loss</strong>
+            <div class="hero-bullets">
+              <div class="hero-bullet">
+                <span class="icon">✅</span>
+                <span>Once-weekly GLP-1 shots (semaglutide / tirzepatide where allowed).</span>
               </div>
-              <div class="hero-pill">
-                ♀ <strong>Women’s HRT</strong>
+              <div class="hero-bullet">
+                <span class="icon">🏡</span>
+                <span>Video visits from home — no waiting rooms or awkward weigh-ins.</span>
               </div>
-              <div class="hero-pill">
-                ♂ <strong>Men’s health & ED</strong>
+              <div class="hero-bullet">
+                <span class="icon">📦</span>
+                <span>Medications shipped from approved partner pharmacies.</span>
               </div>
-              <div class="hero-pill">
-                🌍 <strong>Cross-border routing</strong>
+              <div class="hero-bullet">
+                <span class="icon">💳</span>
+                <span>Cash-pay only with Stripe — clear monthly pricing by market.</span>
               </div>
             </div>
 
-            <div class="hero-metadata">
-              <span><b>Video-only care</b> (no waiting rooms)</span>
-              <span class="dot"></span>
-              <span>Prescriptions via approved pharmacies</span>
-              <span class="dot"></span>
-              <span>Cash-pay only – Stripe global pay</span>
+            <div class="hero-actions">
+              <button class="btn-primary" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">
+                View pricing & start
+              </button>
+              <button class="btn-secondary" type="button" onclick="window.open(currentMarketConfig().videoLink, '_blank')">
+                Join secure TeleVideo
+              </button>
             </div>
+
+            <p class="hero-note">
+              This site is a patient portal: all clinical decisions are made by
+              licensed providers in your country.
+            </p>
           </div>
 
-          <div class="hero-image">
-            <img
-              id="hero-main-img"
-              src=""
-              alt=""
-            />
-            <div class="hero-image-overlay"></div>
-            <div class="hero-label">
-              <span class="badge-dot"></span>
-              Telehealth intake • Patients only
+          <div class="hero-image-wrap">
+            <img id="hero-image" src="" alt="" />
+            <div class="hero-image-tag">
+              <span class="hero-image-tag-dot"></span>
+              Live GLP-1 telehealth session
             </div>
-          </div>
-
-          <div class="treatment-strip">
-            <article class="t-card">
-              <div class="t-img img-glp1"></div>
-              <div class="t-card-inner">
-                <h3>Weight Loss Shots</h3>
-                <p>GLP-1 programs with weekly injections and simple refills.</p>
-                <div class="tag">
-                  <span class="tag-icon">💉</span>
-                  Semaglutide &amp; Tirzepatide
-                </div>
-              </div>
-            </article>
-
-            <article class="t-card">
-              <div class="t-img img-hrt"></div>
-              <div class="t-card-inner">
-                <h3>Women’s HRT</h3>
-                <p>Support for perimenopause, menopause, and hormone balance.</p>
-                <div class="tag">
-                  <span class="tag-icon">♀</span>
-                  Estrogen · Progesterone
-                </div>
-              </div>
-            </article>
-
-            <article class="t-card">
-              <div class="t-img img-ed"></div>
-              <div class="t-card-inner">
-                <h3>Men’s Health & ED</h3>
-                <p>Tadalafil/sildenafil and testosterone-focused programs.</p>
-                <div class="tag">
-                  <span class="tag-icon">♂</span>
-                  ED &amp; TRT support
-                </div>
-              </div>
-            </article>
-
-            <article class="t-card">
-              <div class="t-img img-shipping"></div>
-              <div class="t-card-inner">
-                <h3>Home Delivery</h3>
-                <p>Medications shipped from approved partner pharmacies.</p>
-                <div class="tag">
-                  <span class="tag-icon">📦</span>
-                  Discreet shipping
-                </div>
-              </div>
-            </article>
           </div>
         </section>
 
-        <!-- Right: Markets + intake form -->
-        <section class="panel">
-          <!-- Market selector -->
-          <div class="market-select" aria-label="Choose your country">
-            <button
-              class="market-btn active"
-              type="button"
-              data-market="usa"
-            >
-              <span class="flag">🇺🇸</span>
-              <span>USA</span>
-            </button>
-            <button
-              class="market-btn"
-              type="button"
-              data-market="uae"
-            >
-              <span class="flag">🇦🇪</span>
-              <span>UAE</span>
-            </button>
-            <button
-              class="market-btn"
-              type="button"
-              data-market="germany"
-            >
-              <span class="flag">🇩🇪</span>
-              <span>Germany</span>
-            </button>
-          </div>
-
-          <!-- Market details + pricing -->
-          <section class="market-summary">
-            <h2 id="market-name">
-              <span class="flag">🇺🇸</span>
-              United States – Cash-Pay Telehealth
-            </h2>
-            <p id="market-subcopy" class="market-subcopy">
-              All-in monthly programs including video consults, GLP-1 medication,
-              and ongoing follow-up visits. No insurance, just transparent pricing.
-            </p>
-
-            <div class="pricing-grid">
-              <div class="price-card">
-                <div class="price-label">
-                  <span>Standard GLP-1 Program</span>
-                  <span class="pill-small">Most popular</span>
-                </div>
-                <div class="price-value" id="price-basic">
-                  $299
-                  <span class="price-currency">/month</span>
-                </div>
-                <p class="price-note" id="price-basic-note">
-                  Includes starter dosing, video consult, and pharmacy
-                  coordination.
-                </p>
-              </div>
-
-              <div class="price-card">
-                <div class="price-label">
-                  <span>Premium GLP-1 + Concierge</span>
-                  <span class="pill-small">Full dose</span>
-                </div>
-                <div class="price-value" id="price-plus">
-                  $399
-                  <span class="price-currency">/month</span>
-                </div>
-                <p class="price-note" id="price-plus-note">
-                  Higher GLP-1 dosing tiers with priority scheduling and concierge
-                  messaging.
-                </p>
-              </div>
-            </div>
-
-            <div class="market-image">
-              <img
-                id="market-image"
-                src=""
-                alt=""
-              />
-            </div>
-          </section>
-
-          <!-- Intake form -->
-          <section class="intake-card">
-            <div class="intake-header">
+        <section class="treatments">
+          <h2>What your GLP-1 program feels like</h2>
+          <p class="treatments-sub">
+            Every country sees the same core experience: real weight loss support,
+            real medications, and a plan that fits your life.
+          </p>
+          <div class="t-grid">
+            <div class="t-card">
+              <div class="t-image img-shots"></div>
+              <div class="t-label">GLP-1 weight loss shots</div>
               <div>
-                <h3>Quick intake – start in 60 seconds</h3>
-                <span>Tell us who you are and which market you’re in.</span>
+                <span class="t-tag">Weekly injections</span>
               </div>
-            </div>
-
-            <form>
-              <div class="field-group">
-                <label for="name">Full name</label>
-                <input
-                  id="name"
-                  type="text"
-                  name="name"
-                  placeholder="First and last name"
-                  required
-                />
-              </div>
-
-              <div class="field-group">
-                <label for="email">Email</label>
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  placeholder="your@email"
-                  required
-                />
-              </div>
-
-              <div class="form-row-inline">
-                <div class="field-group">
-                  <label for="market-select-input">Country / region</label>
-                  <select id="market-select-input" name="market" required>
-                    <option value="usa" selected>United States</option>
-                    <option value="uae">United Arab Emirates</option>
-                    <option value="germany">Germany</option>
-                  </select>
-                </div>
-
-                <div class="field-group">
-                  <label for="program">Program of interest</label>
-                  <select id="program" name="program" required>
-                    <option value="weight-loss">GLP-1 Weight Loss</option>
-                    <option value="womens-hrt">Women’s HRT</option>
-                    <option value="mens-health">Men’s Health & ED</option>
-                    <option value="other">Other / Not sure yet</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="primary-actions">
-                <!-- Stripe checkout – updated per market in JS -->
-                <a
-                  id="stripe-link"
-                  class="btn-primary"
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Continue to secure payment
-                  <span>💳</span>
-                </a>
-
-                <!-- TeleVideo – updated per market in JS -->
-                <a
-                  id="intake-video-link"
-                  class="btn-secondary"
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Join live TeleVideo
-                  <span>🎥</span>
-                </a>
-              </div>
-
-              <p class="disclaimer">
-                <b>Important:</b> This portal is for information and video
-                telehealth intake only. All care is provided by licensed
-                providers in your market through compliant partner pharmacies.
-                No insurance is billed; programs are cash-pay only using Stripe.
+              <p>
+                Your provider chooses the right GLP-1 (such as semaglutide or tirzepatide, where compliant) and titrates your dose for sustainable loss.
               </p>
-            </form>
-          </section>
-
-          <footer>
-            © BioTech Ventures – Telehealth Portal. All rights reserved.
-          </footer>
+            </div>
+            <div class="t-card">
+              <div class="t-image img-lifestyle"></div>
+              <div class="t-label">Designed for real life</div>
+              <div>
+                <span class="t-tag">Video-first care</span>
+              </div>
+              <p>
+                No crash diets. Check-ins happen by video, message, and labs — so you can still work, travel, and take care of your family.
+              </p>
+            </div>
+            <div class="t-card">
+              <div class="t-image img-food"></div>
+              <div class="t-label">Support beyond the shot</div>
+              <div>
+                <span class="t-tag">Habits & refills</span>
+              </div>
+              <p>
+                Medication plus lifestyle guidance: hunger control, portion changes, and refill coordination through your local partner pharmacy.
+              </p>
+            </div>
+          </div>
         </section>
+      </section>
+
+      <!-- RIGHT: Market routing & pricing -->
+      <aside id="pricing">
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Choose your country & see your price</h2>
+            <div class="market-toggle">
+              <button class="market-btn active" data-market="usa">
+                <span class="flag">🇺🇸</span><span>USA</span>
+              </button>
+              <button class="market-btn" data-market="uae">
+                <span class="flag">🇦🇪</span><span>UAE</span>
+              </button>
+              <button class="market-btn" data-market="germany">
+                <span class="flag">🇩🇪</span><span>Germany</span>
+              </button>
+            </div>
+          </div>
+
+          <p id="market-meta" class="market-meta"></p>
+
+          <div class="market-image">
+            <img id="market-image" src="" alt="" />
+          </div>
+
+          <div class="pricing-grid" id="pricing-grid"></div>
+
+          <div class="panel-actions">
+            <a id="stripe-link" class="btn-primary btn-full" href="#" target="_blank" rel="noopener">
+              Continue to secure Stripe checkout
+            </a>
+            <button class="btn-secondary btn-full" type="button" onclick="window.open(currentMarketConfig().videoLink, '_blank')">
+              Join TeleVideo for this country
+            </button>
+            <p class="panel-note">
+              Stripe confirms your exact amount and currency before you pay. No insurance billing — cash-pay only.
+            </p>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <!-- RESULTS STRIP -->
+    <section id="results" class="results">
+      <div class="results-header">
+        <h2>What patients usually notice first</h2>
+        <span>Results vary — these are common themes from GLP-1 journeys.</span>
       </div>
-    </div>
+      <div class="results-grid">
+        <div class="result-card">
+          <div class="result-image res-scale"></div>
+          <div>
+            <div class="res-label">The scale finally moves 📉</div>
+            <div class="res-note">
+              Many patients see 2–5 kg (4–10 lb) of loss in the first 4–8 weeks when they stay on-plan and their provider continues treatment.
+            </div>
+          </div>
+        </div>
+        <div class="result-card">
+          <div class="result-image res-jeans"></div>
+          <div>
+            <div class="res-label">Clothes fit differently 👖</div>
+            <div class="res-note">
+              Waistbands loosen, old jeans start to fit again, and patients talk about feeling “lighter” walking up stairs or across the office.
+            </div>
+          </div>
+        </div>
+        <div class="result-card">
+          <div class="result-image res-energy"></div>
+          <div>
+            <div class="res-label">Energy shifts 🔋</div>
+            <div class="res-note">
+              As weight drops and eating patterns change, many report better sleep, fewer crashes, and more stable daytime energy.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="how">
+      <h2>How your GLP-1 telehealth journey works</h2>
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-step-number">1</div>
+          <div>
+            <strong>Select USA, UAE, or Germany.</strong>
+            <br/>
+            You must physically be in that country at the time of your telehealth visit so providers can follow local rules.
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-number">2</div>
+          <div>
+            <strong>Complete intake & pay via Stripe.</strong>
+            <br/>
+            You answer a short medical questionnaire, then complete your first month’s payment with Stripe (cash-pay only).
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-number">3</div>
+          <div>
+            <strong>Meet your provider on video.</strong>
+            <br/>
+            A licensed provider reviews your intake, history, and goals and decides if a GLP-1 program is safe and appropriate.
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-number">4</div>
+          <div>
+            <strong>Start losing weight with follow-up.</strong>
+            <br/>
+            Approved prescriptions are sent to partner pharmacies, shipped to you, and adjusted month-to-month as you progress.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+      <h2>Common questions</h2>
+
+      <details>
+        <summary>How fast will I lose weight on a GLP-1?</summary>
+        <p>
+          It depends on your starting weight, dose, and habits. Many patients see movement in the first 4–8 weeks, then more steady loss over several months if they stay on treatment and their provider keeps prescribing.
+        </p>
+      </details>
+
+      <details>
+        <summary>Are these the same medications used in clinics and hospitals?</summary>
+        <p>
+          Providers use GLP-1 medications and dosing protocols that are appropriate and compliant in your country. All prescriptions are filled by approved pharmacies; the portal itself never ships medication directly.
+        </p>
+      </details>
+
+      <details>
+        <summary>Do you take insurance?</summary>
+        <p>
+          No. This is a cash-pay platform with Stripe as the payment gateway. That means simple, transparent pricing without surprise insurance denials or prior authorizations through this portal.
+        </p>
+      </details>
+
+      <details>
+        <summary>What if my provider decides GLP-1s aren’t safe for me?</summary>
+        <p>
+          Your provider’s job is to keep you safe. If they decide GLP-1 therapy isn’t appropriate, they may suggest alternatives, lifestyle strategies, or lab work. Medications are never guaranteed; all decisions are clinical.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can I switch countries if I travel?</summary>
+        <p>
+          You must follow the laws of the country where you are physically located. If you move or travel long-term, you can speak with support and your provider about how to handle care and whether a new country program makes sense.
+        </p>
+      </details>
+    </section>
+
+    <footer>
+      This portal connects patients to licensed providers and approved pharmacies in each market.
+      All prescribing decisions are made by the provider. BioTech Ventures does not bill insurance.
+      <br />
+      Need help with Stripe or TeleVideo? Email
+      <a href="mailto:support@bio-techventures.com">support@bio-techventures.com</a>
+      or WhatsApp
+      <a href="https://wa.me/14805550123" target="_blank" rel="noopener">
+        +1 (480) 555-0123
+      </a>.
+    </footer>
   </div>
 
   <script>
-    // Central place to manage markets: pricing, imagery, Stripe, and video links
-    const markets = {
+    // Market configuration: pricing, images, and video links
+    const MARKET_CONFIG = {
       usa: {
-        label: "United States – Cash-Pay Telehealth",
+        name: "United States",
         flag: "🇺🇸",
-        currencySymbol: "$",
-        currencyCode: "USD",
-        basicPrice: "299",
-        basicNote:
-          "Includes starter GLP-1 dosing, first video consult, and pharmacy coordination.",
-        plusPrice: "399",
-        plusNote:
-          "Higher GLP-1 dosing tiers with priority support and follow-up video visits.",
-        // USA image: female clinician on telehealth
+        meta:
+          "Cash-pay GLP-1 telehealth for patients physically in the USA at the time of visit. Pricing shown in USD.",
         heroImage:
-          "https://images.unsplash.com/photo-1584466977773-e625c37cdd50?fm=jpg&q=60&w=2000",
-        heroAlt: "Female clinician in the USA delivering care over secure telehealth.",
-        // Stripe product for USA (replace with your real URL)
-        stripeLink: "https://checkout.stripe.com/pay/YOUR_US_STRIPE_LINK",
-        // Doxy room for USA
-        videoLink: "https://doxy.me/biotechventures-usa"
+          "https://images.unsplash.com/photo-1519751138087-5a3a9033a7bf?fm=jpg&q=80&w=1600",
+        heroAlt: "Woman at home with a laptop on the floor, smiling after a workout.",
+        marketImage:
+          "https://images.unsplash.com/photo-1514996937319-344454492b37?fm=jpg&q=80&w=1600",
+        marketAlt: "Healthy meal prep and tape measure, symbolizing weight loss progress.",
+        currency: "USD",
+        symbol: "$",
+        fxToUsd: 1,
+        plans: [
+          {
+            key: "core",
+            name: "Core GLP-1 Program",
+            price: 299,
+            note:
+              "Includes first video consult, starter GLP-1 dosing, and pharmacy coordination for eligible patients."
+          },
+          {
+            key: "advanced",
+            name: "Advanced GLP-1 Program",
+            price: 399,
+            note:
+              "Higher doses and closer follow-up schedule for patients who need more aggressive weight loss support."
+          }
+        ],
+        // Doxy & Stripe for USA (replace Stripe URL with your real link)
+        videoLink: "https://doxy.me/biotechventures-usa",
+        stripeLink: "https://checkout.stripe.com/pay/YOUR_US_STRIPE_LINK"
       },
       uae: {
-        label: "United Arab Emirates – Dubai-led Telehealth",
+        name: "United Arab Emirates (Dubai-led)",
         flag: "🇦🇪",
-        currencySymbol: "AED",
-        currencyCode: "AED",
-        basicPrice: "1250",
-        basicNote:
-          "All-inclusive GLP-1 starter plan with Dubai-based physicians and licensed UAE pharmacies.",
-        plusPrice: "1650",
-        plusNote:
-          "Higher dosing, concierge messaging, and priority women-forward follow-up for Dubai & UAE.",
-        // UAE image: woman with Dubai skyline / Marina – female-first Dubai vibe
+        meta:
+          "Dubai-led GLP-1 telehealth model for patients located in the UAE. Pricing shown in AED.",
         heroImage:
-          "https://images.unsplash.com/photo-1602082289721-e8d7f012469d?fm=jpg&q=60&w=2000",
-        heroAlt:
-          "Woman in Dubai Marina using her phone, representing UAE female-first telehealth.",
-        // Stripe product for UAE (replace with your real URL)
-        stripeLink: "https://checkout.stripe.com/pay/YOUR_UAE_STRIPE_LINK",
-        // Doxy room for UAE
-        videoLink: "https://doxy.me/biotechventures-uae"
+          "https://images.unsplash.com/photo-1602082289721-e8d7f012469d?fm=jpg&q=80&w=1600",
+        heroAlt: "Fit woman jogging in a modern city with towers in the background, representing Dubai weight loss.",
+        marketImage:
+          "https://images.unsplash.com/photo-1521292270410-a8c53642e9d0?fm=jpg&q=80&w=1600",
+        marketAlt: "Healthy bowl and water bottle on a table with a city skyline in the distance.",
+        currency: "AED",
+        symbol: "AED ",
+        fxToUsd: 0.27, // approximate
+        plans: [
+          {
+            key: "core",
+            name: "Slim GLP-1 Program",
+            price: 1850,
+            note:
+              "Dubai-based physicians with monthly GLP-1, video follow-up, and pharmacy coordination for qualifying UAE patients."
+          },
+          {
+            key: "advanced",
+            name: "Elite GLP-1 Program",
+            price: 2390,
+            note:
+              "Higher dosing and concierge-style follow-up built for busy women and professionals across Dubai and the UAE."
+          }
+        ],
+        videoLink: "https://doxy.me/biotechventures-uae",
+        stripeLink: "https://checkout.stripe.com/pay/YOUR_UAE_STRIPE_LINK"
       },
       germany: {
-        label: "Germany – Berlin Telehealth Hub",
+        name: "Germany (Berlin hub)",
         flag: "🇩🇪",
-        currencySymbol: "€",
-        currencyCode: "EUR",
-        basicPrice: "449",
-        basicNote:
-          "German-licensed doctors, GLP-1 starter plan, and local EU pharmacy fulfilment.",
-        plusPrice: "549",
-        plusNote:
-          "Higher dosing, structured follow-up visits, and concierge coordination for German patients.",
-        // Germany image: modern EU clinician / Berlin clinical vibe
+        meta:
+          "Berlin-hub GLP-1 telehealth for patients in Germany. Pricing shown in EUR.",
         heroImage:
-          "https://images.unsplash.com/photo-1582719478250-cc89faeea9f1?fm=jpg&q=60&w=2000",
-        heroAlt:
-          "European clinician on a telehealth video call, representing Berlin-based programs.",
-        // Stripe product for Germany (replace with your real URL)
-        stripeLink: "https://checkout.stripe.com/pay/YOUR_GERMANY_STRIPE_LINK",
-        // Doxy room for Germany
-        videoLink: "https://doxy.me/biotechventures-germany"
+          "https://images.unsplash.com/photo-1538128835124-7805d3fd3f4a?fm=jpg&q=80&w=1600",
+        heroAlt: "Woman walking with a gym bag in a European city, smiling and active.",
+        marketImage:
+          "https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?fm=jpg&q=80&w=1600",
+        marketAlt: "City street with a tram and people walking, representing Berlin daily life and movement.",
+        currency: "EUR",
+        symbol: "€",
+        fxToUsd: 1.1,
+        plans: [
+          {
+            key: "core",
+            name: "Basis GLP-1 Paket",
+            price: 449,
+            note:
+              "German-licensed doctors, GLP-1 start dose, and local pharmacy fulfilment for eligible patients."
+          },
+          {
+            key: "advanced",
+            name: "Komplett GLP-1 Paket",
+            price: 549,
+            note:
+              "More intensive GLP-1 dosing and structured telehealth follow-ups for higher BMI or complex cases."
+          }
+        ],
+        videoLink: "https://doxy.me/biotechventures-germany",
+        stripeLink: "https://checkout.stripe.com/pay/YOUR_GERMANY_STRIPE_LINK"
       }
     };
 
-    const marketButtons = document.querySelectorAll(".market-btn");
-    const marketNameEl = document.getElementById("market-name");
-    const marketSubcopyEl = document.getElementById("market-subcopy");
-    const priceBasicEl = document.getElementById("price-basic");
-    const pricePlusEl = document.getElementById("price-plus");
-    const priceBasicNoteEl = document.getElementById("price-basic-note");
-    const pricePlusNoteEl = document.getElementById("price-plus-note");
-    const heroMainImg = document.getElementById("hero-main-img");
-    const marketImage = document.getElementById("market-image");
-    const marketSelectInput = document.getElementById("market-select-input");
+    const heroImageEl = document.getElementById("hero-image");
+    const marketImageEl = document.getElementById("market-image");
+    const marketMetaEl = document.getElementById("market-meta");
+    const pricingGridEl = document.getElementById("pricing-grid");
     const stripeLinkEl = document.getElementById("stripe-link");
-    const headerVideoLinkEl = document.getElementById("header-video-link");
-    const intakeVideoLinkEl = document.getElementById("intake-video-link");
+    const marketButtons = document.querySelectorAll(".market-btn");
 
-    function setMarket(marketKey) {
-      const m = markets[marketKey];
-      if (!m) return;
-
-      // Toggle button state
-      marketButtons.forEach(btn => {
-        const isActive = btn.dataset.market === marketKey;
-        btn.classList.toggle("active", isActive);
-      });
-
-      // Update title & short copy
-      marketNameEl.innerHTML = `<span class="flag">${m.flag}</span> ${m.label}`;
-      if (marketKey === "usa") {
-        marketSubcopyEl.textContent =
-          "All-in monthly pricing for video visits, GLP-1 medication, and follow-ups. Cash-pay only via Stripe.";
-      } else if (marketKey === "uae") {
-        marketSubcopyEl.textContent =
-          "Dubai-driven, female-forward telehealth with GLP-1 access via licensed UAE providers and pharmacies.";
-      } else if (marketKey === "germany") {
-        marketSubcopyEl.textContent =
-          "Berlin hub for German-licensed telehealth, GLP-1 access, and structured follow-up.";
-      }
-
-      // Update prices
-      priceBasicEl.innerHTML = `${m.currencySymbol}${m.basicPrice}<span class="price-currency">/month</span>`;
-      pricePlusEl.innerHTML = `${m.currencySymbol}${m.plusPrice}<span class="price-currency">/month</span>`;
-      priceBasicNoteEl.textContent = m.basicNote;
-      pricePlusNoteEl.textContent = m.plusNote;
-
-      // Update imagery (hero + right-side market image)
-      heroMainImg.src = m.heroImage;
-      heroMainImg.alt = m.heroAlt;
-      marketImage.src = m.heroImage;
-      marketImage.alt = m.heroAlt;
-
-      // Keep dropdown in sync
-      if (marketSelectInput.value !== marketKey) {
-        marketSelectInput.value = marketKey;
-      }
-
-      // Update Stripe link & video links for this market
-      stripeLinkEl.href = m.stripeLink || "#";
-      headerVideoLinkEl.href = m.videoLink || "#";
-      intakeVideoLinkEl.href = m.videoLink || "#";
-
-      // Update header button text to reflect current market
-      headerVideoLinkEl.innerHTML = `
-        <span class="icon">🎥</span>
-        Start secure TeleVideo (${m.flag})
-      `;
+    function currentMarketConfig() {
+      const activeBtn = document.querySelector(".market-btn.active");
+      const key = activeBtn ? activeBtn.dataset.market : "usa";
+      return MARKET_CONFIG[key] || MARKET_CONFIG.usa;
     }
 
-    // Button click: change market
+    function formatPrice(symbol, value, currency) {
+      const main = value.toLocaleString(undefined, { maximumFractionDigits: 0 });
+      if (currency === "AED") {
+        return symbol + main; // "AED 1,850"
+      }
+      return symbol + main;
+    }
+
+    function renderMarket(key) {
+      const cfg = MARKET_CONFIG[key] || MARKET_CONFIG.usa;
+
+      // Update active button
+      marketButtons.forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.market === key);
+      });
+
+      // Hero + market images
+      heroImageEl.src = cfg.heroImage;
+      heroImageEl.alt = cfg.heroAlt;
+      marketImageEl.src = cfg.marketImage;
+      marketImageEl.alt = cfg.marketAlt;
+
+      // Meta
+      marketMetaEl.textContent = `${cfg.flag} ${cfg.name} • ${cfg.meta}`;
+
+      // Pricing cards
+      pricingGridEl.innerHTML = cfg.plans
+        .map((plan, idx) => {
+          const localStr = formatPrice(cfg.symbol, plan.price, cfg.currency);
+          const usdEq = plan.price * cfg.fxToUsd;
+          const usdStr = "≈ $" + usdEq.toFixed(0) + " USD";
+          const highlight = idx === 0 ? "price-card highlight" : "price-card";
+          const tag = idx === 0 ? "Starter plan" : "More intensive";
+          return `
+            <div class="${highlight}">
+              <div class="price-head">
+                <div class="price-name">${plan.name}</div>
+                <span class="price-pill">${tag}</span>
+              </div>
+              <div class="price-main">${localStr}</div>
+              <div class="price-sub">${usdStr}</div>
+              <p class="price-note">${plan.note}</p>
+            </div>
+          `;
+        })
+        .join("");
+
+      // Stripe link
+      stripeLinkEl.href = cfg.stripeLink || "#";
+    }
+
+    // Event listeners
     marketButtons.forEach(btn => {
       btn.addEventListener("click", () => {
-        const marketKey = btn.dataset.market;
-        setMarket(marketKey);
+        const key = btn.dataset.market;
+        renderMarket(key);
       });
     });
 
-    // Dropdown change: change market
-    marketSelectInput.addEventListener("change", e => {
-      setMarket(e.target.value);
-    });
-
-    // Default: USA
-    setMarket("usa");
+    // Initial state – USA
+    renderMarket("usa");
   </script>
 </body>
 </html>
+
 
