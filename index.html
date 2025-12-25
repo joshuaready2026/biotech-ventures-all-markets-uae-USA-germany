@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Biotech Ventures – GLP-1 Telehealth (USA • UAE • Germany)</title>
+  <title>Biotech Ventures – GLP-1 Weight Loss Programs (USA • UAE • Germany)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #f5f7fb;
+      --bg: #f8fafc;
       --bg-soft: #ffffff;
-      --primary: #2563eb;
-      --primary-soft: #e0edff;
-      --accent: #f97316;
-      --text-main: #0f172a;
-      --text-muted: #6b7280;
-      --border: #e5e7eb;
-      --radius: 18px;
-      --shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+      --primary: #0891b2; /* Clean cyan-blue for clinical trust */
+      --primary-light: #cffafe;
+      --accent: #16a34a; /* Green for health/success */
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --radius: 20px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     }
 
     * {
@@ -28,7 +28,7 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg);
       color: var(--text-main);
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     a {
@@ -37,1080 +37,359 @@
     }
 
     .page {
-      max-width: 1120px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 1.5rem 1rem 3rem;
+      padding: 2rem 1rem;
     }
-
-    /* HEADER */
 
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.8rem;
+      font-size: 1.2rem;
+      font-weight: 700;
     }
 
     .logo-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 25% 25%, #bfdbfe, #2563eb 55%, #0f172a);
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--primary);
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #f9fafb;
+      font-size: 1.2rem;
       font-weight: 800;
-      font-size: 1rem;
-      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.5);
-    }
-
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .logo-text span:first-child {
-      font-weight: 700;
-      font-size: 1.05rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .logo-text span:last-child {
-      font-size: 0.78rem;
-      color: var(--text-muted);
     }
 
     nav {
       display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: flex-end;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    nav a {
-      position: relative;
-      padding-bottom: 0.1rem;
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -0.2rem;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      transition: width 0.15s ease-out;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    .nav-pill {
-      border-radius: 999px;
-      border: 1px solid var(--primary);
-      padding: 0.4rem 0.9rem;
-      color: var(--primary);
-      background: #ffffff;
-      font-size: 0.8rem;
-    }
-
-    @media (max-width: 900px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav {
-        justify-content: flex-start;
-      }
-    }
-
-    /* HERO */
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 1.8rem;
-      align-items: center;
-      background: linear-gradient(135deg, #ffffff, #e0edff 50%, #fee2e2 100%);
-      border-radius: 24px;
-      padding: 1.8rem 1.6rem;
-      box-shadow: var(--shadow);
-      margin-bottom: 2.2rem;
-    }
-
-    @media (max-width: 850px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .hero-kicker {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #f97316;
-      font-weight: 600;
-      margin-bottom: 0.55rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 3vw, 2.6rem);
-      line-height: 1.15;
-      margin-bottom: 0.6rem;
-    }
-
-    .hero h1 span {
-      background: linear-gradient(90deg, #2563eb, #22c55e);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero-sub {
-      font-size: 0.98rem;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-    }
-
-    .hero-price {
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
+      gap: 1.5rem;
       font-weight: 500;
     }
 
-    .hero-price strong {
-      font-size: 1.05rem;
-      color: #16a34a;
+    nav a:hover {
+      color: var(--primary);
     }
 
-    .hero-bullets {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 0.7rem;
-      font-size: 0.84rem;
-      margin-bottom: 1.2rem;
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      padding: 0.8rem 1.8rem;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: background 0.2s;
     }
 
-    .hero-bullet {
-      display: flex;
-      gap: 0.5rem;
-      align-items: flex-start;
+    .btn-primary:hover {
+      background: #0e7490;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(to bottom, var(--primary-light), white);
+      border-radius: var(--radius);
+      margin-bottom: 4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
       color: var(--text-muted);
-    }
-
-    .hero-bullet span.icon {
-      font-size: 1rem;
     }
 
     .hero-actions {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .btn-primary {
-      border-radius: 999px;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      background: linear-gradient(135deg, #2563eb, #22c55e);
-      color: white;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .btn-secondary {
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      padding: 0.7rem 1.3rem;
-      font-size: 0.88rem;
-      background: #ffffff;
-      color: var(--text-main);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .btn-full {
-      width: 100%;
+      gap: 1rem;
       justify-content: center;
-      text-align: center;
+      flex-wrap: wrap;
     }
 
-    .hero-note {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .hero-image {
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      background: #e5e7eb;
-      min-height: 260px;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transform: scale(1.03);
-    }
-
-    .hero-tag {
-      position: absolute;
-      left: 0.9rem;
-      top: 0.9rem;
-      background: rgba(15, 23, 42, 0.85);
-      color: #e5e7eb;
-      padding: 0.35rem 0.8rem;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .hero-tag-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-    }
-
-    /* COUNTRY SNAPSHOT */
-
+    /* Sections */
     .section {
-      margin-bottom: 2.4rem;
+      margin-bottom: 4rem;
     }
 
     .section h2 {
-      font-size: 1.15rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .section-sub {
-      font-size: 0.86rem;
-      color: var(--text-muted);
+      font-size: 2rem;
+      text-align: center;
       margin-bottom: 1rem;
+      color: var(--text-main);
     }
 
-    .country-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 1rem;
-    }
-
-    .country-card {
-      background: #ffffff;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      padding: 0.9rem 0.9rem 0.8rem;
-      font-size: 0.84rem;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
-    }
-
-    .country-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 0.4rem;
-    }
-
-    .country-name {
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .country-flag {
+    .section p.lead {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      color: var(--text-muted);
       font-size: 1.1rem;
     }
 
-    .country-pill {
-      font-size: 0.7rem;
-      padding: 0.15rem 0.55rem;
-      border-radius: 999px;
-      background: var(--primary-soft);
-      color: #1d4ed8;
-    }
-
-    .country-highlight {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: #16a34a;
-      margin: 0.25rem 0;
-    }
-
-    .country-note {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    /* PRICING CARDS */
-
-    .pricing-grid {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
     }
 
-    .price-card {
-      background: #ffffff;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      padding: 1rem 1rem 1rem;
-      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      font-size: 0.86rem;
-    }
-
-    .price-card.highlight {
-      border-color: #2563eb;
-      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.45), 0 18px 42px rgba(15, 23, 42, 0.16);
-    }
-
-    .price-country {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.6rem;
-    }
-
-    .price-country-left {
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-    }
-
-    .price-country-left span.flag {
-      font-size: 1.3rem;
-    }
-
-    .price-country-left span.label {
-      font-weight: 600;
-    }
-
-    .price-tag {
-      font-size: 0.7rem;
-      padding: 0.15rem 0.6rem;
-      border-radius: 999px;
-      background: #ecfdf5;
-      color: #15803d;
-    }
-
-    .price-main {
-      font-size: 1.05rem;
-      font-weight: 700;
-    }
-
-    .price-convert {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    .price-list {
-      margin: 0.25rem 0 0.2rem;
-      padding-left: 1.1rem;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-
-    .price-list li {
-      margin-bottom: 0.18rem;
-    }
-
-    .price-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      margin-top: 0.3rem;
-    }
-
-    .price-actions a {
+    .card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
       text-align: center;
-      font-size: 0.85rem;
     }
 
-    .btn-ghost {
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      padding: 0.6rem 1.2rem;
-      background: #f9fafb;
-      color: #111827;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.35rem;
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      margin-bottom: 1.5rem;
     }
 
-    /* OTHER TREATMENTS */
-
-    .treatments-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1rem;
+    .faq {
+      max-width: 900px;
+      margin: 0 auto;
     }
 
-    .treatment-card {
-      background: #ffffff;
-      border-radius: 18px;
-      border: 1px solid var(--border);
+    .faq-item {
+      background: white;
+      border-radius: var(--radius);
+      margin-bottom: 1rem;
       overflow: hidden;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.07);
-      display: flex;
-      flex-direction: column;
-      font-size: 0.84rem;
+      box-shadow: var(--shadow);
     }
 
-    .treatment-img {
-      height: 130px;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .t-hrt-men {
-      background-image: url("https://images.unsplash.com/photo-1535916707207-35f97e715e1b?fm=jpg&q=80&w=1200");
-    }
-
-    .t-hrt-women {
-      background-image: url("https://images.unsplash.com/photo-1523816572-d98f7a9845bb?fm=jpg&q=80&w=1200");
-    }
-
-    .t-ed {
-      background-image: url("https://images.unsplash.com/photo-1514416309827-bfb0c61a3a56?fm=jpg&q=80&w=1200");
-    }
-
-    .treatment-body {
-      padding: 0.75rem 0.85rem 0.9rem;
-    }
-
-    .treatment-body h3 {
-      font-size: 0.92rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .treatment-tag {
-      display: inline-block;
-      font-size: 0.7rem;
-      padding: 0.15rem 0.55rem;
-      border-radius: 999px;
-      background: #f3e8ff;
-      color: #7c3aed;
-      margin-bottom: 0.35rem;
-    }
-
-    .treatment-footnote {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-top: 0.25rem;
-    }
-
-    /* HOW IT WORKS / VIDEO / TESTIMONIALS */
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      font-size: 0.84rem;
-    }
-
-    .step {
-      background: #ffffff;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      padding: 0.9rem 0.9rem 0.9rem;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
-      display: flex;
-      gap: 0.55rem;
-    }
-
-    .step-num {
-      width: 1.5rem;
-      height: 1.5rem;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #2563eb, #22c55e);
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
+    .faq-question {
+      padding: 1.5rem;
       font-weight: 600;
-      flex-shrink: 0;
-    }
-
-    .video-box {
-      background: #0f172a;
-      color: #e5e7eb;
-      border-radius: 20px;
-      padding: 1.1rem 1rem 1.1rem;
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
     }
 
-    @media (max-width: 800px) {
-      .video-box {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    .faq-question::after {
+      content: "+";
+      font-size: 1.5rem;
     }
 
-    .video-box h2 {
-      font-size: 1.05rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .video-box p {
-      font-size: 0.84rem;
-      color: #cbd5f5;
-      margin-bottom: 0.7rem;
-    }
-
-    .video-tagline {
-      font-size: 0.78rem;
-      color: #9ca3ff;
-      margin-bottom: 0.6rem;
-    }
-
-    .video-buttons {
-      display: grid;
-      gap: 0.45rem;
-    }
-
-    .video-buttons a {
-      font-size: 0.82rem;
-      text-align: center;
-    }
-
-    .btn-video {
-      border-radius: 999px;
-      border: 1px solid rgba(248, 250, 252, 0.3);
-      padding: 0.6rem 1.1rem;
-      background: #f9fafb;
-      color: #0f172a;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.35rem;
-    }
-
-    .btn-video-outline {
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      padding: 0.55rem 1.05rem;
-      background: transparent;
-      color: #e5e7eb;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.35rem;
-    }
-
-    .video-note {
-      font-size: 0.75rem;
-      color: #9ca3af;
-    }
-
-    .video-side {
-      background: radial-gradient(circle at 10% 0, #22c55e 0, #1d4ed8 35%, #020617 85%);
-      border-radius: 18px;
-      padding: 0.9rem 0.9rem;
-      font-size: 0.8rem;
-    }
-
-    .video-side h3 {
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
-      color: #f9fafb;
-    }
-
-    .video-side p {
-      color: #e5e7eb;
-      margin-bottom: 0.4rem;
-    }
-
-    .video-side ul {
-      padding-left: 1.1rem;
-      color: #e5e7eb;
-      font-size: 0.78rem;
-    }
-
-    .video-side li {
-      margin-bottom: 0.18rem;
-    }
-
-    .testimonials {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem;
-      font-size: 0.82rem;
-    }
-
-    .testimonial-card {
-      background: #ffffff;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      padding: 0.9rem 0.95rem;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
-    }
-
-    .testimonial-quote {
-      margin-bottom: 0.4rem;
-    }
-
-    .testimonial-name {
-      font-size: 0.8rem;
+    .faq-answer {
+      padding: 0 1.5rem 1.5rem;
+      display: none;
       color: var(--text-muted);
     }
 
-    /* FOOTER */
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .faq-item.open .faq-question::after {
+      content: "−";
+    }
 
     footer {
-      margin-top: 2rem;
-      font-size: 0.74rem;
-      color: var(--text-muted);
       text-align: center;
-    }
-
-    footer a {
-      color: #2563eb;
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
+      padding: 3rem 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <div class="page">
-    <!-- HEADER -->
     <header>
       <div class="logo">
         <div class="logo-mark">BV</div>
-        <div class="logo-text">
-          <span>Biotech Ventures</span>
-          <span>GLP-1 telehealth & e-pharmacy</span>
-        </div>
+        Biotech Ventures
       </div>
       <nav>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#other-treatments">Other Treatments</a>
-        <a href="#video-consults">Video Consults</a>
-        <a href="#pricing" class="nav-pill">Enroll Now</a>
+        <a href="#education">Science</a>
+        <a href="#programs">Programs</a>
+        <a href="#how">How It Works</a>
+        <a href="#faq">FAQ</a>
+        <a href="#pricing" class="btn-primary">Get Started</a>
       </nav>
     </header>
 
-    <!-- HERO -->
     <section class="hero">
-      <div>
-        <div class="hero-kicker">GLP-1 weight management • USA • UAE • Germany</div>
-        <h1>Your path to better health <span>starts here.</span></h1>
-        <p class="hero-sub">
-          All-inclusive GLP-1 weight management with licensed telehealth providers and
-          partner pharmacies — built as a clean, global portal for women and men who are
-          serious about results.
-        </p>
-        <p class="hero-price">
-          <strong>USA: $299–$399 / month</strong> • Includes consultation, medication,
-          refills consults, and discreet shipping. See UAE and Germany pricing below.
-        </p>
-        <div class="hero-bullets">
-          <div class="hero-bullet">
-            <span class="icon">💉</span>
-            <span>GLP-1 shots (semaglutide / tirzepatide where compliant) for real, measurable weight loss.</span>
-          </div>
-          <div class="hero-bullet">
-            <span class="icon">🎥</span>
-            <span>Short telemedicine visits from home — no waiting rooms, no awkward weigh-ins.</span>
-          </div>
-          <div class="hero-bullet">
-            <span class="icon">📦</span>
-            <span>Medication filled by licensed partner pharmacies and shipped discreetly to you.</span>
-          </div>
-          <div class="hero-bullet">
-            <span class="icon">🌍</span>
-            <span>Single portal for <strong>USA, UAE, and Germany</strong> with Stripe as a universal pay gate.</span>
-          </div>
-        </div>
-        <div class="hero-actions">
-          <button class="btn-primary" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">
-            View pricing by country
-          </button>
-          <button class="btn-secondary" onclick="document.getElementById('video-consults').scrollIntoView({behavior:'smooth'})">
-            Join video consult
-          </button>
-        </div>
-        <p class="hero-note">
-          Not insurance. Cash-pay only. Every prescription is decided by a licensed provider
-          in your country.
-        </p>
+      <h1>Transform Your Health with <span>GLP-1 Therapy</span></h1>
+      <p>Clinically proven weight loss medications like semaglutide and tirzepatide, delivered through convenient telehealth programs in the USA, UAE, and Germany. Lose 15–20%+ of body weight on average, regain energy, and feel confident again.</p>
+      <div class="hero-actions">
+        <a href="#programs" class="btn-primary">Explore Programs by Country</a>
       </div>
-      <div class="hero-image">
-        <img
-          src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?fm=jpg&q=80&w=1600"
-          alt="Confident woman smiling in a bright clinical setting"
-        />
-        <div class="hero-tag">
-          <span class="hero-tag-dot"></span>
-          GLP-1 patient video check-in
+
+      <!-- Real patient transformations for excitement -->
+
+<grok-card data-id="28ab1b" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
+
+
+
+<grok-card data-id="63b6ac" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
+
+
+
+<grok-card data-id="675b92" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
+
+    </section>
+
+    <section class="section" id="education">
+      <h2>The Science of GLP-1 Weight Loss</h2>
+      <p class="lead">GLP-1 agonists (like semaglutide in Wegovy/Ozempic and tirzepatide in Mounjaro/Zepbound) are revolutionary medications that mimic natural hormones to control appetite, slow digestion, and improve insulin sensitivity.</p>
+
+      <div class="grid">
+        <div class="card">
+
+<grok-card data-id="5242ac" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
+
+          <h3>Powerful Medications</h3>
+          <p>Semaglutide and tirzepatide – the most effective weight loss drugs available, backed by large clinical trials showing sustained 15–22% weight reduction.</p>
+        </div>
+        <div class="card">
+
+<grok-card data-id="8c8250" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
+
+          <h3>Real Results</h3>
+          <p>Patients often see rapid improvements in waist size, energy levels, and confidence as excess weight melts away.</p>
+        </div>
+        <div class="card">
+
+<grok-card data-id="c4bb23" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
+
+          <h3>Sustainable Lifestyle</h3>
+          <p>Combined with healthy habits, GLP-1 therapy helps you maintain your new weight long-term.</p>
         </div>
       </div>
     </section>
 
-    <!-- COUNTRY SNAPSHOT -->
-    <section class="section" id="markets">
-      <h2>Three markets, one clean portal</h2>
-      <p class="section-sub">
-        Biotech Ventures is built for telehealth — not walk-ins. Patients arrive here,
-        choose their country, finish intake, and move straight into GLP-1 programs when approved.
-      </p>
-      <div class="country-grid">
-        <div class="country-card">
-          <div class="country-top">
-            <div class="country-name">
-              <span class="country-flag">🇺🇸</span>
-              <span>United States</span>
-            </div>
-            <span class="country-pill">Cash-pay only</span>
-          </div>
-          <p class="country-highlight">$299–$399 / month</p>
-          <p class="country-note">
-            503A/503B partner pharmacies, video visits via Doxy-based telehealth, and discrete
-            shipping across supported U.S. states.
-          </p>
+    <section class="section" id="programs">
+      <h2>Our GLP-1 Programs – Clean & Clinical for Each Market</h2>
+      <p class="lead">Tailored telehealth programs with licensed local providers and pharmacies in the USA, UAE, and Germany. All-inclusive: consultation, prescription (if approved), medication, and ongoing support.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>🇺🇸 United States</h3>
+          <p><strong>$299–$399 / month</strong></p>
+          <p>Compounded semaglutide/tirzepatide from 503A/503B pharmacies. Video consults & discreet shipping.</p>
+
+<grok-card data-id="68a96c" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
+
         </div>
-        <div class="country-card">
-          <div class="country-top">
-            <div class="country-name">
-              <span class="country-flag">🇦🇪</span>
-              <span>United Arab Emirates</span>
-            </div>
-            <span class="country-pill">Dubai-led model</span>
-          </div>
-          <p class="country-highlight">From ~1,850–2,390 AED / month</p>
-          <p class="country-note">
-            UAE-based providers and approved pharmacies. Built for high-performing women and men
-            across Dubai and the UAE who want GLP-1 done right.
-          </p>
+        <div class="card">
+          <h3>🇦🇪 United Arab Emirates</h3>
+          <p><strong>~1,850–2,390 AED / month</strong></p>
+          <p>UAE-approved medications, local providers in Dubai/Abu Dhabi. Premium care for high-achievers.</p>
+
+<grok-card data-id="7ac546" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
+
         </div>
-        <div class="country-card">
-          <div class="country-top">
-            <div class="country-name">
-              <span class="country-flag">🇩🇪</span>
-              <span>Germany</span>
-            </div>
-            <span class="country-pill">Berlin hub</span>
-          </div>
-          <p class="country-highlight">From ~€449–€549 / month</p>
-          <p class="country-note">
-            German-licensed physicians and German partner pharmacies, with all visits via video
-            and discreet pharmacy fulfilment.
-          </p>
+        <div class="card">
+          <h3>🇩🇪 Germany</h3>
+          <p><strong>~€449–€549 / month</strong></p>
+          <p>German-licensed physicians & pharmacies. Fully compliant video consultations.</p>
+
+<grok-card data-id="89cad1" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
+
         </div>
       </div>
     </section>
 
-    <!-- PRICING BY COUNTRY -->
-    <section class="section" id="pricing">
-      <h2>All-inclusive pricing by country</h2>
-      <p class="section-sub">
-        Each country includes: initial telehealth consult, GLP-1 medication (where approved),
-        follow-up consults for refills, and shipping from partner pharmacies.
-      </p>
-      <div class="pricing-grid">
-        <!-- USA -->
-        <article class="price-card highlight">
-          <div class="price-country">
-            <div class="price-country-left">
-              <span class="flag">🇺🇸</span>
-              <span class="label">United States</span>
-            </div>
-            <span class="price-tag">Most common</span>
-          </div>
-          <div class="price-main">$299–$399 / month</div>
-          <div class="price-convert">Stripe checkout in USD • Cash-pay only</div>
-          <ul class="price-list">
-            <li>Initial GLP-1 consult with U.S. licensed provider</li>
-            <li>Compounded GLP-1 (semaglutide / tirzepatide) from 503A/503B partners</li>
-            <li>Follow-up video consults for refills and dose adjustments</li>
-            <li>Discreet shipping directly to your door (eligible states only)</li>
-          </ul>
-          <div class="price-actions">
-            <!-- TODO: replace with your real Stripe checkout link -->
-            <a href="https://checkout.stripe.com/pay/YOUR_US_STRIPE_LINK" class="btn-primary btn-full">
-              Enroll from the USA
-            </a>
-            <!-- TODO: replace with your dedicated Doxy room link -->
-            <a href="https://doxy.me" class="btn-ghost">
-              Join U.S. Telehealth Room
-            </a>
-          </div>
-        </article>
+    <section class="section" id="how">
+      <h2>How It Works</h2>
+      <p class="lead">Simple, private, and effective – from home.</p>
 
-        <!-- UAE -->
-        <article class="price-card">
-          <div class="price-country">
-            <div class="price-country-left">
-              <span class="flag">🇦🇪</span>
-              <span class="label">United Arab Emirates</span>
-            </div>
-            <span class="price-tag">Dubai-led</span>
-          </div>
-          <div class="price-main">≈ 1,850–2,390 AED / month</div>
-          <div class="price-convert">Charged via Stripe in local currency equivalent</div>
-          <ul class="price-list">
-            <li>Telehealth consults with UAE-based providers</li>
-            <li>GLP-1 medication and titration based on local guidelines</li>
-            <li>Follow-ups for refills and weight-loss tracking</li>
-            <li>Partner pharmacy fulfilment across Dubai/UAE</li>
-          </ul>
-          <div class="price-actions">
-            <!-- TODO: replace with your real Stripe checkout link -->
-            <a href="https://checkout.stripe.com/pay/YOUR_UAE_STRIPE_LINK" class="btn-primary btn-full">
-              Enroll from the UAE
-            </a>
-            <!-- TODO: replace with your UAE video room link (Doxy or local platform) -->
-            <a href="https://doxy.me" class="btn-ghost">
-              Join UAE Telehealth Room
-            </a>
-          </div>
-        </article>
-
-        <!-- GERMANY -->
-        <article class="price-card">
-          <div class="price-country">
-            <div class="price-country-left">
-              <span class="flag">🇩🇪</span>
-              <span class="label">Germany</span>
-            </div>
-            <span class="price-tag">Berlin hub</span>
-          </div>
-          <div class="price-main">≈ €449–€549 / month</div>
-          <div class="price-convert">Stripe in EUR or local equivalent</div>
-          <ul class="price-list">
-            <li>Consults with German-licensed physicians via video</li>
-            <li>GLP-1 prescriptions filled by German pharmacies</li>
-            <li>Ongoing follow-ups for refills and dose optimisation</li>
-            <li>Shipping and handling built into the program fee</li>
-          </ul>
-          <div class="price-actions">
-            <!-- TODO: replace with your real Stripe checkout link -->
-            <a href="https://checkout.stripe.com/pay/YOUR_DE_STRIPE_LINK" class="btn-primary btn-full">
-              Enroll from Germany
-            </a>
-            <!-- TODO: replace with your Germany video room link -->
-            <a href="https://doxy.me" class="btn-ghost">
-              Join Germany Telehealth Room
-            </a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- OTHER TREATMENTS -->
-    <section class="section" id="other-treatments">
-      <h2>Additional telehealth & e-pharmacy programs</h2>
-      <p class="section-sub">
-        Beyond GLP-1, Biotech Ventures supports select hormone and men’s health programs
-        through licensed providers and partner pharmacies. Availability can vary by country.
-      </p>
-      <div class="treatments-grid">
-        <article class="treatment-card">
-          <div class="treatment-img t-hrt-men"></div>
-          <div class="treatment-body">
-            <h3>Hormone Replacement Therapy for Men</h3>
-            <span class="treatment-tag">Testosterone optimization</span>
-            <p>
-              Structured testosterone programs (pellets, injections, or creams) with labs,
-              telehealth oversight, and pharmacy fulfilment.
-            </p>
-            <p class="treatment-footnote">
-              Availability by country. Final therapy only after provider approval.
-            </p>
-          </div>
-        </article>
-
-        <article class="treatment-card">
-          <div class="treatment-img t-hrt-women"></div>
-          <div class="treatment-body">
-            <h3>Hormone Replacement Therapy for Women</h3>
-            <span class="treatment-tag">Bioidentical support</span>
-            <p>
-              Bioidentical hormones for menopause symptoms, mood, sleep, and long-term
-              wellness — prescribed and managed via telehealth.
-            </p>
-            <p class="treatment-footnote">
-              Availability by country. Requires consult, labs, and risk review.
-            </p>
-          </div>
-        </article>
-
-        <article class="treatment-card">
-          <div class="treatment-img t-ed"></div>
-          <div class="treatment-body">
-            <h3>Erectile Dysfunction Treatment</h3>
-            <span class="treatment-tag">Tele-urology style care</span>
-            <p>
-              Sildenafil, tadalafil, and tailored compounded options where permitted, with
-              follow-up refills managed online.
-            </p>
-            <p class="treatment-footnote">
-              Country-specific. Not all medications are offered in all regions.
-            </p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="section" id="how-it-works">
-      <h2>Simple 3-step process across all markets</h2>
-      <p class="section-sub">
-        The flow is the same whether you’re in the USA, UAE, or Germany — different
-        providers and pharmacies, one clean experience.
-      </p>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div>
-            <strong>Complete intake online</strong><br />
-            Answer a short health questionnaire, upload labs if requested, and confirm your
-            country so we can route you to the correct provider and pharmacy network.
-          </div>
+      <div class="grid">
+        <div class="card">
+          <h3>1. Quick Online Intake</h3>
+          <p>Answer health questions in minutes.</p>
         </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div>
-            <strong>Telehealth consult via secure video</strong><br />
-            Meet a licensed provider by video. They review your history, risks, and goals and
-            decide if GLP-1 or another program is clinically appropriate.
-          </div>
+        <div class="card">
+
+<grok-card data-id="6dae0f" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
+
+          <h3>2. Video Consultation</h3>
+          <p>Licensed provider reviews & prescribes if suitable.</p>
         </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div>
-            <strong>Medication & refills shipped discreetly</strong><br />
-            If approved, prescriptions go to partner pharmacies in your country. Refills and
-            dose adjustments are handled through ongoing telehealth follow-ups.
-          </div>
+        <div class="card">
+          <h3>3. Medication Delivered</h3>
+          <p>Discreet shipping to your door with easy-to-use pens.</p>
+
+<grok-card data-id="7d74c0" data-type="image_card"  data-arg-size="LARGE" ></grok-card>
+
+        </div>
+        <div class="card">
+          <h3>4. Ongoing Support</h3>
+          <p>Follow-ups, dose adjustments, and guidance.</p>
         </div>
       </div>
     </section>
 
-    <!-- VIDEO CONSULTS -->
-    <section class="section" id="video-consults">
-      <div class="video-box">
-        <div>
-          <h2>Secure video consults with licensed providers</h2>
-          <p>
-            Biotech Ventures uses telehealth-approved video platforms (such as Doxy-style rooms)
-            so patients and providers can connect from anywhere in the USA, UAE, and Germany.
-          </p>
-          <p class="video-tagline">
-            Patients use the link sent in the enrollment confirmation email. Providers use their
-            dedicated room links.
-          </p>
-          <div class="video-buttons">
-            <!-- These are placeholders; plug in your own country-specific URLs -->
-            <a href="https://doxy.me" class="btn-video">
-              🇺🇸 U.S. Provider / Patient Room
-            </a>
-            <a href="https://doxy.me" class="btn-video">
-              🇦🇪 UAE Provider / Patient Room
-            </a>
-            <a href="https://doxy.me" class="btn-video">
-              🇩🇪 Germany Provider / Patient Room
-            </a>
-          </div>
-          <p class="video-note">
-            Exact links and instructions are emailed after you enroll and are tied to the market
-            you selected (USA, UAE, or Germany).
-          </p>
+    <section class="section" id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <p class="lead">Everything you need to know about GLP-1 weight loss therapy.</p>
+
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-question">What are GLP-1 medications and how do they work?<div></div></div>
+          <div class="faq-answer">GLP-1 agonists mimic a hormone that regulates appetite and blood sugar. They reduce hunger, increase fullness, and lead to significant, sustainable weight loss – far more effective than diet alone.</div>
         </div>
-        <aside class="video-side">
-          <h3>Built for providers & nurses too</h3>
-          <p>
-            Clean, professional telehealth flows make Biotech Ventures a platform clinicians
-            are proud to be part of.
-          </p>
-          <ul>
-            <li>Clear, cash-pay programs — no insurance billing drama.</li>
-            <li>Dedicated GLP-1 workflows per country and pharmacy network.</li>
-            <li>Video-first care that respects provider time and patient privacy.</li>
-          </ul>
-        </aside>
+        <div class="faq-item">
+          <div class="faq-question">Is this safe and approved in my country?<div></div></div>
+          <div class="faq-answer">Yes. We use only licensed providers and pharmacies compliant with local regulations in the USA, UAE, and Germany. Prescriptions are issued only after medical review.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">How much weight can I expect to lose?<div></div></div>
+          <div class="faq-answer">Clinical trials show average loss of 15% (semaglutide) to 20–22% (tirzepatide) of body weight over 68–72 weeks, with many patients seeing faster initial results.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What are common side effects?<div></div></div>
+          <div class="faq-answer">Mostly mild: nausea, constipation, or diarrhea – usually temporary as your body adjusts. Your provider will guide dosing to minimize them.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Do I need insurance?<div></div></div>
+          <div class="faq-answer">No – our programs are cash-pay for simplicity and privacy. Pricing is all-inclusive with no hidden fees.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Can I stop anytime?<div></div></div>
+          <div class="faq-answer">Yes, though gradual tapering with provider guidance helps maintain results. Many combine with lifestyle changes for long-term success.</div>
+        </div>
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
-    <section class="section" id="testimonials">
-      <h2>What patients say about GLP-1 through telehealth</h2>
-      <p class="section-sub">
-        Real-world experiences from patients using GLP-1 programs through telehealth platforms
-        like Biotech Ventures. Individual results vary.
-      </p>
-      <div class="testimonials">
-        <article class="testimonial-card">
-          <p class="testimonial-quote">
-            “Lost 35 lbs and feel amazing. The video visits fit my schedule and the pharmacy
-            shipping is seamless.”
-          </p>
-          <p class="testimonial-name">– Michael R.</p>
-        </article>
-        <article class="testimonial-card">
-          <p class="testimonial-quote">
-            “Finally a weight-loss program that actually works without insurance headaches.
-            Everything is handled through the portal.”
-          </p>
-          <p class="testimonial-name">– Laura S.</p>
-        </article>
-        <article class="testimonial-card">
-          <p class="testimonial-quote">
-            “Professional, fast, and discreet. I recommend the GLP-1 telehealth approach to
-            my friends who are serious about their health.”
-          </p>
-          <p class="testimonial-name">– David K.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
     <footer>
-      Disclaimer: Not medical advice. All treatment decisions are made by licensed providers
-      after clinical review. GLP-1 and other medications are prescribed only when appropriate
-      and are filled by licensed pharmacies in each country. Results vary.
-      <br /><br />
-      © 2025 Biotech Ventures. All rights reserved.
-      • Need help? Email
-      <a href="mailto:support@bio-techventures.com">support@bio-techventures.com</a>
-      or WhatsApp
-      <a href="https://wa.me/14805550123" target="_blank" rel="noopener">
-        +1 (480) 555-0123
-      </a>.
+      <p>&copy; 2025 Biotech Ventures. All rights reserved. | Medical services provided by licensed professionals. Results vary. Consult a doctor.</p>
     </footer>
   </div>
+
+  <script>
+    // Simple FAQ toggle
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        q.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
 </body>
 </html>
