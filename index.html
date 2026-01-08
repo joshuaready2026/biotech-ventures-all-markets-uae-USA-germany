@@ -12,8 +12,8 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
    
-    <!-- Stripe JS -->
-    <script src="https://js.stripe.com/v3/"></script>
+    <!-- Stripe Pricing Table JS -->
+    <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
    
     <style>
         body { font-family: 'Helvetica Neue', Arial, sans-serif; }
@@ -48,17 +48,18 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Enroll Now at the top -->
+    <!-- Hero Section with Stripe Pricing Table at the top -->
     <section class="hero text-center">
         <div class="container">
             <h1 class="display-3 fw-bold">Your Path to Better Health Starts Here</h1>
             <p class="lead fs-2">Global GLP-1 Weight Management • USA • UAE • Germany</p>
             <p class="lead">All-inclusive programs with licensed local providers: consultation, medication, follow-ups, and discreet shipping.</p>
-            <!-- Stripe Payment Gate - Prominent at the top -->
-            <a href="https://buy.stripe.com/00weV68o8aCX2PDf4c3ks01" class="btn pay-button btn-lg mt-4" target="_blank">
-                Enroll Now
-            </a>
-            <p class="mt-3 text-white-50">Secure payment via Stripe. Cancel anytime.</p>
+            
+            <!-- Stripe Pricing Table (replaces simple button) -->
+            <stripe-pricing-table 
+                pricing-table-id="prctbl_1Sn8DV6wuZQptKNQN0b1ch4e"
+                publishable-key="pk_live_51SfvTG6wuZQptKNQB1QgtGr40pUSTlWkQfAzxxpLRmYFFnderqXRWwV7kHGBZwwbXJB3qdlOYK6OXyCqIqBGxYWp00uoBEFNfo">
+            </stripe-pricing-table>
         </div>
     </section>
 
