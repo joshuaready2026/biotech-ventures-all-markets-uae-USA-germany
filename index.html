@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,6 +25,8 @@
         .btn-primary { background-color: #00aaff; border: none; }
         .btn-primary:hover { background-color: #0088cc; }
         .icon-large { font-size: 3rem; color: #00aaff; margin-bottom: 20px; }
+        .pay-button { background-color: #00aaff; color: white; font-size: 1.5rem; padding: 18px 50px; border-radius: 50px; }
+        .pay-button:hover { background-color: #0088cc; }
     </style>
 </head>
 <body>
@@ -47,20 +47,26 @@
             </div>
         </div>
     </nav>
-    <!-- Hero Section -->
+
+    <!-- Hero Section with Enroll Now at the top -->
     <section class="hero text-center">
         <div class="container">
             <h1 class="display-3 fw-bold">Your Path to Better Health Starts Here</h1>
             <p class="lead fs-2">Global GLP-1 Weight Management • USA • UAE • Germany</p>
             <p class="lead">All-inclusive programs with licensed local providers: consultation, medication, follow-ups, and discreet shipping.</p>
-            <a href="#markets" class="btn btn-light btn-lg mt-4 px-5 py-3">View Programs by Country</a>
+            <!-- Stripe Payment Gate - Prominent at the top -->
+            <a href="https://buy.stripe.com/00weV68o8aCX2PDf4c3ks01" class="btn pay-button btn-lg mt-4" target="_blank">
+                Enroll Now
+            </a>
+            <p class="mt-3 text-white-50">Secure payment via Stripe. Cancel anytime.</p>
         </div>
     </section>
+
     <!-- Markets & Pricing -->
     <section id="markets" class="bg-light">
         <div class="container">
             <h2 class="text-center mb-5">All-Inclusive Programs by Market</h2>
-            <p class="text-center lead mb-5">Tailored telehealth with local licensed providers and pharmacies. Cash-pay only! (Credit Card-Debit Card-Cryto), No insurance needed!.</p>
+            <p class="text-center lead mb-5">Tailored telehealth with local licensed providers and pharmacies. Cash-pay only! (Credit Card-Debit Card-Crypto), No insurance needed!.</p>
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="card h-100 shadow-sm border-0">
@@ -77,7 +83,7 @@
                         <img src="https://thumbs.dreamstime.com/b/online-doctor-consultation-portrait-black-female-therapist-using-digital-tablet-online-doctor-consultation-concept-smiling-169989131.jpg" class="card-img-top card-img-custom" alt="UAE Provider">
                         <div class="card-body text-center">
                             <h4>🇦🇪 United Arab Emirates</h4>
-                            <p class="price-highlight"> Starting at ~1850/mo </p>
+                            <p class="price-highlight">Starting at ~1850/mo </p>
                             <p>UAE-approved medications and local Dubai/Abu Dhabi providers.</p>
                         </div>
                     </div>
@@ -87,7 +93,7 @@
                         <img src="https://www.shutterstock.com/image-photo/woman-portrait-nurse-tablet-hospital-260nw-2618324121.jpg" class="card-img-top card-img-custom" alt="Germany Provider">
                         <div class="card-body text-center">
                             <h4>🇩🇪 Germany</h4>
-                            <p class="price-highlight"> Starting at €449/mo </p>
+                            <p class="price-highlight">Starting at €449/mo </p>
                             <p>German-licensed physicians and compliant pharmacies.</p>
                         </div>
                     </div>
@@ -95,6 +101,7 @@
             </div>
         </div>
     </section>
+
     <!-- What's Included (General) -->
     <section id="pricing">
         <div class="container">
@@ -133,6 +140,7 @@
             </div>
         </div>
     </section>
+
     <!-- Additional Treatments -->
     <section id="additional" class="bg-light">
         <div class="container">
@@ -169,6 +177,7 @@
             </div>
         </div>
     </section>
+
     <!-- How It Works -->
     <section id="how-it-works">
         <div class="container">
@@ -197,6 +206,7 @@
             </div>
         </div>
     </section>
+
     <!-- Video Conference Section -->
     <section id="video-conference" class="bg-light">
         <div class="container">
@@ -208,14 +218,12 @@
                 </div>
                 <div class="col-md-6 text-center">
                     <p class="mb-4">Pay to enroll and unlock your video consult room. Patients: Use emailed link after payment.<br>Providers: Access your room.</p>
-                    <button id="checkout-button" class="btn btn-primary btn-lg px-5 py-3">Join Now & Pay with Stripe</button>
-                    <div id="video-link" style="display: none; margin-top: 20px;">
-                        <a href="https://doxy.me/biotechventures" class="btn btn-success btn-lg px-5 py-3" target="_blank">Access Unlocked Video Conference</a>
-                    </div>
+                    <a href="https://buy.stripe.com/00weV68o8aCX2PDf4c3ks01" class="btn btn-primary btn-lg px-5 py-3" target="_blank">Enroll & Pay with Stripe</a>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- Testimonials -->
     <section>
         <div class="container">
@@ -248,6 +256,7 @@
             </div>
         </div>
     </section>
+
     <!-- Footer Disclaimer -->
     <footer class="bg-dark text-white py-5">
         <div class="container text-center">
@@ -255,19 +264,8 @@
             <p>&copy; 2025 Biotech Ventures. All rights reserved. Medical services by independent licensed providers.</p>
         </div>
     </footer>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- Stripe Payment Simulation (Replace with real backend for production) -->
-    <script>
-        // Simulate Stripe payment - In production, use backend to create checkout session
-        document.getElementById('checkout-button').addEventListener('click', function() {
-            // Here, integrate real Stripe: fetch session ID from backend and redirect
-            // For demo, simulate success after 2 seconds
-            setTimeout(() => {
-                document.getElementById('checkout-button').style.display = 'none';
-                document.getElementById('video-link').style.display = 'block';
-            }, 2000); // Simulate payment processing delay
-        });
-    </script>
 </body>
 </html>
