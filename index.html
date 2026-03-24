@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bio-Tech Ventures | Unlock Your Vitality</title>
+    <title>Bio-Tech Ventures</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
         
         :root {
-            --primary: #00f5bf;
-            --dark: #050505;
-            --accent: #0a0a0a;
+            --bg: #1c1f24;      /* Gunmetal gray */
+            --dark: #111417;
         }
         
         * {
@@ -26,68 +25,10 @@
             overflow-x: hidden;
         }
         
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 2rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            transition: all 0.4s ease;
-        }
-        
-        .logo {
-            max-height: 52px;
-            width: auto;
-        }
-        
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            text-align: center;
-            background: linear-gradient(rgba(5,5,5,0.75), rgba(5,5,5,0.85));
-        }
-        
-        .hero-content {
-            max-width: 1100px;
-            padding: 0 20px;
-            z-index: 2;
-        }
-        
-        .hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(3.2rem, 7vw, 6.5rem);
-            line-height: 1.05;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            letter-spacing: -2px;
-        }
-        
-        .hero .subtitle {
-            font-size: 1.45rem;
-            max-width: 720px;
-            margin: 0 auto 3rem;
-            opacity: 0.95;
-            line-height: 1.4;
-        }
-        
-        .tagline {
-            font-family: 'Space Grotesk', sans-serif;
-            color: var(--primary);
-            font-size: 1.3rem;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-        }
-        
+        /* Full-screen video - the ONLY major attraction */
         .video-section {
             height: 100vh;
+            width: 100%;
             position: relative;
             background: #000;
         }
@@ -98,146 +39,85 @@
             left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
         }
         
         .video-container iframe {
             width: 100%;
             height: 100%;
             border: none;
-            object-fit: cover;
         }
         
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(5,5,5,0.4), rgba(5,5,5,0.7));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
-            opacity: 0;
-            transition: opacity 0.6s ease;
-        }
-        
-        .video-section:hover .video-overlay {
-            opacity: 1;
-        }
-        
-        .contact-section {
-            padding: 12rem 5% 8rem;
-            background: var(--accent);
+        /* Minimal contact section at the bottom */
+        .contact {
+            padding: 7rem 5% 5rem;
+            background: var(--bg);
             text-align: center;
         }
         
-        .contact-section h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3.2rem;
-            margin-bottom: 2rem;
+        .contact h2 {
+            font-size: 1.95rem;
+            font-weight: 500;
+            margin-bottom: 1.8rem;
+            letter-spacing: 0.5px;
         }
         
         .email {
-            font-size: 2.4rem;
-            color: var(--primary);
+            font-size: 1.85rem;
+            color: #ffffff;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             transition: all 0.3s ease;
         }
         
         .email:hover {
-            color: #fff;
-            letter-spacing: 1px;
+            opacity: 0.75;
         }
         
         footer {
-            padding: 3rem 5%;
+            padding: 2.5rem 5%;
             text-align: center;
             font-size: 0.95rem;
-            opacity: 0.6;
+            opacity: 0.5;
+            background: var(--dark);
             border-top: 1px solid rgba(255,255,255,0.08);
         }
         
         @media (max-width: 768px) {
-            .header { padding: 1.5rem 5%; }
-            .logo { max-height: 42px; }
-            .contact-section { padding: 8rem 5% 6rem; }
+            .contact { padding: 5rem 5% 4rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Fixed Header with Logo -->
-    <header class="header">
-        <img src="https://i.imgur.com/XuBjU.png" alt="Bio-Tech Ventures Logo" class="logo">
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="tagline">UNLOCK YOUR VITALITY</div>
-            <h1>Revolutionizing Human Vitality<br>Through Biotechnology</h1>
-            <p class="subtitle">
-                We harness cutting-edge science to unlock peak human performance, longevity, and wellness.
-            </p>
-            <a href="#video" style="display:inline-block; background:var(--primary); color:#000; padding:1.1rem 3rem; border-radius:9999px; font-weight:700; font-size:1.2rem; text-decoration:none; box-shadow:0 10px 40px rgba(0,245,191,0.4); transition:all 0.3s;">
-                Watch Our Vision
-            </a>
-        </div>
-    </section>
-
-    <!-- Full-Screen Video Section (the wow factor) -->
-    <section id="video" class="video-section">
+    <!-- Full-screen video only - the major attraction -->
+    <section class="video-section">
         <div class="video-container">
-            <!-- Your Vimeo video – full bleed, responsive, clean player -->
+            <!-- Clean Vimeo embed: minimal branding possible -->
             <iframe src="https://player.vimeo.com/video/1176733151?autoplay=0&loop=0&muted=1&title=0&byline=0&portrait=0&transparent=0" 
                     frameborder="0" 
                     allow="autoplay; fullscreen; picture-in-picture" 
                     allowfullscreen>
             </iframe>
         </div>
-        
-        <!-- Optional subtle overlay text on hover (remove if you want pure video) -->
-        <div class="video-overlay">
-            <div style="text-align:center; color:white;">
-                <p style="font-size:1.6rem; opacity:0.9;">Discover the Future of Human Potential</p>
-            </div>
-        </div>
     </section>
 
-    <!-- Contact Section at the bottom -->
-    <section class="contact-section">
-        <h2>Ready to Shape the Future of Vitality?</h2>
-        <p style="font-size:1.35rem; max-width:680px; margin:0 auto 4rem; opacity:0.85;">
-            Connect with our team for partnership, investment, or collaboration opportunities.
-        </p>
+    <!-- Simple contact at the bottom -->
+    <section class="contact">
+        <h2>Contact Us</h2>
         <a href="mailto:contact@bio-techventures.com" class="email">
             contact@bio-techventures.com
         </a>
     </section>
 
     <footer>
-        &copy; 2026 Bio-Tech Ventures. All rights reserved.<br>
-        Pioneering tomorrow’s human potential.
+        &copy; 2026 Bio-Tech Ventures • Research &amp; Development Laboratory
     </footer>
 
     <script>
-        // Smooth scroll for the button
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Autoplay video when scrolled into view (muted for better UX)
+        // Auto-play video when it becomes visible (muted for better landing page experience)
         const iframe = document.querySelector('iframe');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.7) {
                     let src = iframe.src;
                     if (!src.includes('autoplay=1')) {
                         src = src.replace('autoplay=0', 'autoplay=1');
