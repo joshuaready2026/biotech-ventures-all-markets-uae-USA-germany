@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bio-Tech Ventures | Unlock Your Vitality</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
         
         :root {
-            --primary: #00ff9d;
-            --dark: #0a0a0a;
-            --gray: #1a1a1a;
+            --primary: #00f5bf;
+            --dark: #050505;
+            --accent: #0a0a0a;
         }
         
         * {
@@ -21,251 +21,233 @@
         
         body {
             font-family: 'Inter', system-ui, sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            background: var(--dark);
             color: #ffffff;
-            line-height: 1.6;
             overflow-x: hidden;
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            padding: 2.5rem 0;
-            text-align: center;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.4s ease;
         }
         
         .logo {
-            max-width: 280px;
-            height: auto;
-        }
-        
-        .tagline {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.15rem;
-            letter-spacing: 5px;
-            color: var(--primary);
-            text-transform: uppercase;
-            margin-top: 0.8rem;
+            max-height: 52px;
+            width: auto;
         }
         
         .hero {
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             align-items: center;
+            justify-content: center;
+            position: relative;
             text-align: center;
-            padding: 6rem 0 4rem;
+            background: linear-gradient(rgba(5,5,5,0.75), rgba(5,5,5,0.85));
         }
         
         .hero-content {
-            max-width: 850px;
-            margin: 0 auto;
+            max-width: 1100px;
+            padding: 0 20px;
+            z-index: 2;
         }
         
         .hero h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.8rem, 8vw, 5rem);
+            font-size: clamp(3.2rem, 7vw, 6.5rem);
             line-height: 1.05;
-            margin-bottom: 1.8rem;
-            background: linear-gradient(90deg, #ffffff, var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .hero p {
-            font-size: 1.4rem;
-            max-width: 680px;
-            margin: 0 auto 3rem;
-            opacity: 0.92;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: var(--primary);
-            color: #000;
             font-weight: 700;
-            padding: 1.1rem 3rem;
-            border-radius: 9999px;
-            font-size: 1.15rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 40px rgba(0, 255, 157, 0.35);
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
         }
         
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 255, 157, 0.45);
+        .hero .subtitle {
+            font-size: 1.45rem;
+            max-width: 720px;
+            margin: 0 auto 3rem;
+            opacity: 0.95;
+            line-height: 1.4;
+        }
+        
+        .tagline {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--primary);
+            font-size: 1.3rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
         }
         
         .video-section {
-            padding: 6rem 0;
-            background: var(--gray);
-        }
-        
-        .video-wrapper {
+            height: 100vh;
             position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7);
-        }
-        
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
             background: #000;
         }
         
-        .video-container iframe {
+        .video-container {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            overflow: hidden;
+        }
+        
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
             border: none;
+            object-fit: cover;
         }
         
-        .section-title {
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(5,5,5,0.4), rgba(5,5,5,0.7));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        
+        .video-section:hover .video-overlay {
+            opacity: 1;
+        }
+        
+        .contact-section {
+            padding: 12rem 5% 8rem;
+            background: var(--accent);
             text-align: center;
+        }
+        
+        .contact-section h2 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.8rem;
-            margin-bottom: 3rem;
+            font-size: 3.2rem;
+            margin-bottom: 2rem;
         }
         
-        .contact {
-            padding: 7rem 0;
-            background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
-            text-align: center;
-        }
-        
-        .contact h2 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .email-link {
-            font-size: 2rem;
+        .email {
+            font-size: 2.4rem;
             color: var(--primary);
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
         }
         
-        .email-link:hover {
-            color: #ffffff;
+        .email:hover {
+            color: #fff;
+            letter-spacing: 1px;
         }
         
         footer {
-            padding: 3.5rem 0;
+            padding: 3rem 5%;
             text-align: center;
-            font-size: 1rem;
-            opacity: 0.75;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.95rem;
+            opacity: 0.6;
+            border-top: 1px solid rgba(255,255,255,0.08);
         }
         
         @media (max-width: 768px) {
-            .logo { max-width: 220px; }
-            .hero { padding: 4rem 0 3rem; }
-            .section-title { font-size: 2.3rem; }
+            .header { padding: 1.5rem 5%; }
+            .logo { max-height: 42px; }
+            .contact-section { padding: 8rem 5% 6rem; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <img src="https://i.imgur.com/XuBjU.png" alt="Bio-Tech Ventures Logo" class="logo">
-            <div class="tagline">UNLOCK YOUR VITALITY!</div>
-        </div>
+    <!-- Fixed Header with Logo -->
+    <header class="header">
+        <img src="https://i.imgur.com/XuBjU.png" alt="Bio-Tech Ventures Logo" class="logo">
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="container hero-content">
-            <h1>Revolutionizing Human Vitality Through Biotechnology</h1>
-            <p>At Bio-Tech Ventures, we harness cutting-edge science to unlock peak human performance, longevity, and wellness. Join the future of vitality.</p>
-            <a href="#contact" class="cta-button">Get In Touch</a>
+        <div class="hero-content">
+            <div class="tagline">UNLOCK YOUR VITALITY</div>
+            <h1>Revolutionizing Human Vitality<br>Through Biotechnology</h1>
+            <p class="subtitle">
+                We harness cutting-edge science to unlock peak human performance, longevity, and wellness.
+            </p>
+            <a href="#video" style="display:inline-block; background:var(--primary); color:#000; padding:1.1rem 3rem; border-radius:9999px; font-weight:700; font-size:1.2rem; text-decoration:none; box-shadow:0 10px 40px rgba(0,245,191,0.4); transition:all 0.3s;">
+                Watch Our Vision
+            </a>
         </div>
     </section>
 
-    <section class="video-section">
-        <div class="container">
-            <h2 class="section-title">Discover Our Vision</h2>
-            
-            <div class="video-wrapper">
-                <div class="video-container">
-                    <!-- Vimeo video embed with autoplay when in view -->
-                    <iframe src="https://player.vimeo.com/video/1176733151?autoplay=0&loop=0&muted=1&title=0&byline=0&portrait=0" 
-                            frameborder="0" 
-                            allow="autoplay; fullscreen; picture-in-picture" 
-                            allowfullscreen>
-                    </iframe>
-                </div>
+    <!-- Full-Screen Video Section (the wow factor) -->
+    <section id="video" class="video-section">
+        <div class="video-container">
+            <!-- Your Vimeo video – full bleed, responsive, clean player -->
+            <iframe src="https://player.vimeo.com/video/1176733151?autoplay=0&loop=0&muted=1&title=0&byline=0&portrait=0&transparent=0" 
+                    frameborder="0" 
+                    allow="autoplay; fullscreen; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+        
+        <!-- Optional subtle overlay text on hover (remove if you want pure video) -->
+        <div class="video-overlay">
+            <div style="text-align:center; color:white;">
+                <p style="font-size:1.6rem; opacity:0.9;">Discover the Future of Human Potential</p>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Ready to Unlock Your Vitality?</h2>
-            <p style="font-size: 1.35rem; max-width: 620px; margin: 0 auto 3rem; opacity: 0.9;">
-                Whether you're an investor, partner, researcher, or simply passionate about the future of human potential — 
-                we'd love to connect with you.
-            </p>
-            
-            <a href="mailto:contact@bio-techventures.com" class="email-link">
-                contact@bio-techventures.com
-            </a>
-            
-            <p style="margin-top: 4rem; font-size: 1.1rem; opacity: 0.7;">
-                Our team typically responds within 24 hours.
-            </p>
-        </div>
+    <!-- Contact Section at the bottom -->
+    <section class="contact-section">
+        <h2>Ready to Shape the Future of Vitality?</h2>
+        <p style="font-size:1.35rem; max-width:680px; margin:0 auto 4rem; opacity:0.85;">
+            Connect with our team for partnership, investment, or collaboration opportunities.
+        </p>
+        <a href="mailto:contact@bio-techventures.com" class="email">
+            contact@bio-techventures.com
+        </a>
     </section>
 
     <footer>
-        <div class="container">
-            &copy; 2026 Bio-Tech Ventures. All rights reserved.<br>
-            Pioneering the future of human potential.
-        </div>
+        &copy; 2026 Bio-Tech Ventures. All rights reserved.<br>
+        Pioneering tomorrow’s human potential.
     </footer>
 
-    <!-- Smooth scrolling for the "Get In Touch" button -->
     <script>
+        // Smooth scroll for the button
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
-        
-        // Optional: Autoplay video when it enters viewport (with muted)
-        const videoIframe = document.querySelector('iframe');
+
+        // Autoplay video when scrolled into view (muted for better UX)
+        const iframe = document.querySelector('iframe');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Change src to enable autoplay when scrolled into view
-                    let src = videoIframe.src;
+                    let src = iframe.src;
                     if (!src.includes('autoplay=1')) {
                         src = src.replace('autoplay=0', 'autoplay=1');
-                        videoIframe.src = src;
+                        iframe.src = src;
                     }
                 }
             });
-        }, { threshold: 0.6 });
-        
-        observer.observe(videoIframe);
+        }, { threshold: 0.7 });
+
+        observer.observe(iframe);
     </script>
 </body>
 </html>
