@@ -1,5 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioTech Ventures | Research Tools &amp; Custom Synthesis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        .section-header { font-size: 2rem; line-height: 2.25rem; font-weight: 600; letter-spacing: -0.02em; }
+        .lab-image { transition: transform 0.3s ease; border-radius: 16px; }
+        .lab-image:hover { transform: scale(1.015); }
+    </style>
+</head>
+<body class="bg-white text-slate-800">
 
-    <footer class="border-t border-slate-800 py-6 text-center text-xs text-slate-500">
+    <!-- Navbar -->
+    <nav class="border-b border-slate-200 bg-white sticky top-0 z-50">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-x-3">
+                    <div class="w-9 h-9 bg-teal-600 rounded-xl flex items-center justify-center">
+                        <span class="text-white font-bold text-2xl">B</span>
+                    </div>
+                    <span class="font-semibold text-2xl tracking-tight">BioTech Ventures</span>
+                </div>
+                
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="#capabilities" class="hover:text-teal-600 transition-colors">Capabilities</a>
+                    <a href="#compliance" class="hover:text-teal-600 transition-colors">Compliance</a>
+                    <a href="#arizona" class="hover:text-teal-600 transition-colors">Arizona Focus</a>
+                </div>
+                
+                <a href="#contact" class="px-6 py-2.5 bg-teal-600 text-white text-sm font-medium rounded-2xl hover:bg-teal-700 transition-colors">
+                    Contact
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="max-w-screen-xl mx-auto px-6 pt-16 pb-14">
+        <div class="max-w-3xl">
+            <div class="inline-flex items-center gap-x-2 px-4 py-1 rounded-full bg-teal-50 text-teal-700 text-sm font-medium mb-6">
+                US-Based • Research-Only
+            </div>
+            
+            <h1 class="text-6xl leading-none tracking-tighter font-semibold mb-6">
+                Custom synthesis.<br>
+                Research tools.<br>
+                <span class="text-teal-600">USA built.</span>
+            </h1>
+            
+            <p class="text-xl text-slate-600 max-w-lg">
+                BioTech Ventures develops novel, non-controlled, research-only experimental compounds and research-grade materials for legitimate scientific research.
+            </p>
+        </div>
+    </div>
+
+    <!-- Capabilities -->
+    <div id="capabilities" class="max-w-screen-xl mx-auto px-6 pb-16">
+        <h2 class="section-header mb-10">Capabilities</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            
+            <!-- Custom Synthesis -->
+            <div>
+                <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=900" 
+                     alt="Clean modern laboratory" 
+                     class="w-full h-80 object-cover mb-6 lab-image shadow-sm">
+                
+                <h3 class="font-semibold text-2xl mb-3">Custom Synthesis Laboratory</h3>
+                <p class="text-slate-600">
+                    Development and production of novel, non-controlled, research-only experimental compounds using compliant U.S. supply channels and rigorous operational protocols.
+                </p>
+                <div class="mt-3 text-sm text-teal-600 font-medium">RESEARCH USE ONLY</div>
+            </div>
+
+            <!-- NeuroForge Pipeline -->
+            <div>
+                <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=900" 
+                     alt="Scientist working in professional laboratory" 
+                     class="w-full h-80 object-cover mb-6 lab-image shadow-sm">
+                
+                <h3 class="font-semibold text-2xl mb-3">NeuroForge Pipeline</h3>
+                <p class="text-slate-600">
+                    Multi-target analog tool compounds designed to support legitimate scientific research into neuroplasticity and reward pathway mechanisms.
+                </p>
+                <div class="mt-3 text-sm text-teal-600 font-medium">FOR QUALIFIED RESEARCH PARTNERS</div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Compliance -->
+    <div id="compliance" class="bg-slate-50 border-y border-slate-200 py-16">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="max-w-2xl mb-10">
+                <div class="text-teal-600 text-sm font-semibold tracking-widest mb-2">CORE OPERATING PRINCIPLE</div>
+                <h2 class="section-header">Strict Research-Only Framework</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white border border-slate-200 rounded-3xl p-7">
+                    <h4 class="font-semibold mb-2">Research-Only Positioning</h4>
+                    <p class="text-sm text-slate-600">All compounds and materials are supplied exclusively as “For Laboratory Research Use Only – Not For Human Consumption.”</p>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-3xl p-7">
+                    <h4 class="font-semibold mb-2">Knowledge Firewall</h4>
+                    <p class="text-sm text-slate-600">Robust protocols maintained with all partners. No compounds are marketed or positioned for human consumption.</p>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-3xl p-7">
+                    <h4 class="font-semibold mb-2">Compliance First</h4>
+                    <p class="text-sm text-slate-600">Non-controlled by design. Structural differentiation maintained. Proactive regulatory positioning with compliant U.S. supplier channels.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Arizona Focus -->
+    <div id="arizona" class="max-w-screen-xl mx-auto px-6 py-16">
+        <div class="grid md:grid-cols-12 gap-x-12 items-center">
+            <div class="md:col-span-6">
+                <h2 class="section-header tracking-tight mb-6">Phoenix. Arizona.<br>Our home base.</h2>
+                <p class="text-slate-600 text-lg">
+                    Corporate headquarters in Scottsdale. Establishing compliant wet lab operations in Phoenix and actively hiring local Phoenix-based scientific talent to contribute to Arizona’s growing bioscience ecosystem.
+                </p>
+            </div>
+            <div class="md:col-span-6 mt-10 md:mt-0">
+                <div class="bg-white border border-slate-200 rounded-3xl p-8">
+                    <h4 class="font-semibold mb-4">Current Priorities</h4>
+                    <ul class="space-y-3 text-slate-600">
+                        <li>• Compliant wet lab setup in Phoenix metro</li>
+                        <li>• Local organic chemist hiring</li>
+                        <li>• Scaling research-grade OTC materials division</li>
+                        <li>• Advancing NeuroForge Pipeline</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div id="contact" class="bg-slate-900 text-white py-16">
+        <div class="max-w-screen-xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-semibold tracking-tight mb-3">Let’s connect.</h2>
+            <p class="text-slate-400 mb-8">For research partnerships and qualified inquiries only.</p>
+            
+            <a href="mailto:contact@bio-techventures.com" 
+               class="inline-block px-8 py-4 bg-white text-slate-900 font-medium rounded-3xl hover:bg-slate-100 transition-colors">
+                contact@bio-techventures.com
+            </a>
+            
+            <p class="mt-8 text-sm text-slate-400 max-w-md mx-auto">
+                All inquiries are reviewed for alignment with our strict research-only framework.
+            </p>
+        </div>
+    </div>
+
+    <footer class="border-t border-slate-200 py-6 text-center text-xs text-slate-500">
         © BioTech Ventures. All compounds and materials supplied for laboratory research use only. Not for human consumption.
     </footer>
 
