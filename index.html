@@ -3,189 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BioTech Ventures | R&D Biotech Firm</title>
+    <title>BioTech Ventures | Research tools for the CNS</title>
+    <meta name="description" content="BioTech Ventures is the company. NeuroForge is a tunable modular platform for laboratory research tools for the central nervous system. One core. One attachment site. One method.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
-        
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-        }
-        
-        .heading-font {
-            font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
-            font-weight: 600;
-        }
-
-        .section-header {
-            font-size: 2.25rem;
-            line-height: 2.5rem;
-            font-weight: 600;
-            letter-spacing: -0.025em;
-        }
-
-        .biotech-card {
-            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
-                       box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .biotech-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+        body { font-family: Inter, system-ui, sans-serif; }
+        .heading-font { font-family: 'Space Grotesk', Inter, system-ui, sans-serif; font-weight: 600; }
+        .gold { color: #C6A15B; }
+        @media (min-width: 768px) {
+            .rail { position: relative; }
+            .rail:before {
+                content: "";
+                position: absolute;
+                left: 8%;
+                right: 8%;
+                top: 28px;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, #0f766e, #C6A15B, #0f766e, transparent);
+            }
         }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-200">
-    <!-- Navbar -->
-    <nav class="border-b border-slate-800 bg-slate-950/80 backdrop-blur-lg sticky top-0 z-50">
-        <div class="max-w-screen-xl mx-auto px-6">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center gap-x-3">
-                    <div class="w-9 h-9 bg-teal-500 rounded-xl flex items-center justify-center">
-                        <span class="text-slate-950 font-bold text-2xl tracking-tighter">B</span>
-                    </div>
-                    <div>
-                        <span class="font-semibold text-2xl tracking-tight">BioTech Ventures</span>
-                    </div>
-                </div>
-                
-                <div class="hidden md:flex items-center gap-x-8 text-sm">
-                    <a href="#about" class="hover:text-teal-400 transition-colors">About</a>
-                    <a href="#capabilities" class="hover:text-teal-400 transition-colors">Capabilities</a>
-                    <a href="#arizona" class="hover:text-teal-400 transition-colors">Arizona</a>
-                </div>
-                
-                <div>
-                    <a href="#contact" 
-                       class="px-5 py-2.5 bg-white text-slate-950 text-sm font-medium rounded-2xl hover:bg-slate-100 transition-colors">
-                        Contact
-                    </a>
-                </div>
+    <nav class="border-b border-slate-800/80 bg-slate-950/85 backdrop-blur-lg sticky top-0 z-50">
+        <div class="max-w-screen-xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#top" class="flex items-center gap-3">
+                <span class="w-9 h-9 bg-teal-500 rounded-xl flex items-center justify-center text-slate-950 font-bold text-2xl tracking-tighter">B</span>
+                <span class="font-semibold text-xl tracking-tight">BioTech Ventures</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8 text-sm text-slate-300">
+                <a href="#technology" class="hover:text-teal-300">The technology</a>
+                <a href="#doors" class="hover:text-teal-300">Programs</a>
+                <a href="#standard" class="hover:text-teal-300">Standard</a>
+                <a href="#arizona" class="hover:text-teal-300">Arizona</a>
             </div>
+            <a href="#contact" class="px-5 py-2.5 bg-white text-slate-950 text-sm font-medium rounded-2xl hover:bg-slate-100">Contact</a>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <div class="max-w-screen-xl mx-auto px-6 pt-16 pb-20">
-        <div class="max-w-3xl">
-            <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-3xl bg-slate-900 border border-slate-800 mb-6">
-                <div class="w-2 h-2 bg-teal-400 rounded-full"></div>
-                <span class="text-sm font-medium text-teal-400">Scottsdale, Arizona</span>
-            </div>
-            
-            <h1 class="text-5xl md:text-6xl leading-none tracking-tighter font-semibold heading-font mb-6">
-                Research & Development BioTech Firm<br>
-                Focused on<br>
-                Discovery Research
-            </h1>
-            
-            <p class="text-xl text-slate-400 max-w-lg mb-10">
-                BioTech Ventures is a boutique research and development firm engaged in scientific discovery and process development.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4">
-                <a href="#contact" 
-                   class="inline-flex items-center justify-center px-8 py-4 bg-teal-500 hover:bg-teal-400 transition-all text-slate-950 font-semibold rounded-3xl text-base">
-                    Contact Us
-                </a>
+    <header id="top" class="relative overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=1800&q=80" alt="" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/88 to-slate-950/30"></div>
+        <div class="relative max-w-screen-xl mx-auto px-6 pt-16 pb-20 md:pt-24 md:pb-28">
+            <p class="text-sm font-medium text-teal-300 mb-5">Scottsdale, Arizona</p>
+            <h1 class="heading-font text-5xl md:text-7xl leading-[0.95] tracking-tight text-white max-w-4xl">Research tools for the central nervous system</h1>
+            <p class="mt-6 text-lg md:text-xl text-slate-200 max-w-2xl">The platform is aimed at dysfunction in the central nervous system. That is the brain.</p>
+            <p class="mt-4 text-base md:text-lg text-slate-300 max-w-3xl">BioTech Ventures is the company. NeuroForge is a tunable modular platform for laboratory research tools. One core. One attachment site. One method. The platform stays.</p>
+            <div class="mt-8 flex flex-wrap gap-2 max-w-3xl">
+                <span class="px-3 py-1 rounded-full border border-white/20 text-sm">Substance use</span>
+                <span class="px-3 py-1 rounded-full border border-white/20 text-sm">PTSD</span>
+                <span class="px-3 py-1 rounded-full border border-white/20 text-sm">Neurodegeneration</span>
+                <span class="px-3 py-1 rounded-full border border-white/20 text-sm">Autism</span>
+                <span class="px-3 py-1 rounded-full border border-white/20 text-sm">Glioblastoma</span>
+                <span class="px-3 py-1 rounded-full border border-white/20 text-sm">Chronic pain</span>
             </div>
         </div>
-    </div>
+    </header>
 
-    <!-- About -->
-    <div id="about" class="max-w-screen-xl mx-auto px-6 pt-12 pb-16">
-        <div class="grid md:grid-cols-12 gap-x-12 items-center">
-            <div class="md:col-span-5">
-                <h2 class="section-header tracking-tight mb-6">Based in Arizona.<br>Focused on research.</h2>
-                <p class="text-slate-400 text-[15px] leading-relaxed">
-                    Our Arizona operations are located within the expanding footprint of one of the world’s top-ranked healthcare institutions on the Mayo Clinic Scottsdale campus. We are building scientific capacity in the Greater Phoenix area.
-                </p>
+    <section id="technology" class="max-w-screen-xl mx-auto px-6 py-20">
+        <div class="grid md:grid-cols-12 gap-10 items-end mb-12">
+            <div class="md:col-span-7">
+                <p class="gold text-sm font-medium tracking-wide">The technology</p>
+                <h2 class="heading-font text-4xl md:text-6xl tracking-tight mt-3">Rank. Filter. Confirm.</h2>
+                <p class="mt-4 text-slate-400 max-w-xl">Proprietary computational software, driven by super intelligence. Retrosynthesis and QSAR run before the bench.</p>
             </div>
-            <div class="md:col-span-7 mt-10 md:mt-0">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="biotech-card bg-slate-900 border border-slate-800 rounded-3xl p-6">
-                        <div class="text-teal-400 mb-3"><i class="fa-solid fa-flask fa-lg"></i></div>
-                        <div class="font-semibold mb-1">Discovery Research</div>
-                        <div class="text-sm text-slate-400">Scientific research and process development</div>
-                    </div>
-                    <div class="biotech-card bg-slate-900 border border-slate-800 rounded-3xl p-6">
-                        <div class="text-teal-400 mb-3"><i class="fa-solid fa-chart-line fa-lg"></i></div>
-                        <div class="font-semibold mb-1">Analytical Support</div>
-                        <div class="text-sm text-slate-400">Characterization and method development</div>
-                    </div>
+            <div class="md:col-span-5 overflow-hidden rounded-3xl border border-slate-800 h-48">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1800&q=80" alt="" class="w-full h-full object-cover">
+            </div>
+        </div>
+
+        <div class="rail grid md:grid-cols-4 gap-5">
+            <article class="bg-slate-900 border border-slate-800 rounded-3xl p-6">
+                <div class="w-14 h-14 rounded-full border border-teal-700 flex items-center justify-center heading-font text-teal-300 mb-5">01</div>
+                <h3 class="text-xl font-semibold mb-3">Frame</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">One core. One attachment site. One method. The group is the only change.</p>
+            </article>
+            <article class="bg-slate-900 border border-teal-900 rounded-3xl p-6">
+                <div class="w-14 h-14 rounded-full border border-[#C6A15B] flex items-center justify-center heading-font text-[#C6A15B] mb-5">02</div>
+                <h3 class="text-xl font-semibold mb-3">Rank</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">The software scores the start against public science before a dollar reaches the bench.</p>
+            </article>
+            <article class="bg-slate-900 border border-slate-800 rounded-3xl p-6">
+                <div class="w-14 h-14 rounded-full border border-teal-700 flex items-center justify-center heading-font text-teal-300 mb-5">03</div>
+                <h3 class="text-xl font-semibold mb-3">Filter</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">A weak start is dropped. The software does not invent an atom. It does not find a drug.</p>
+            </article>
+            <article class="bg-slate-900 border border-slate-800 rounded-3xl p-6">
+                <div class="w-14 h-14 rounded-full border border-teal-700 flex items-center justify-center heading-font text-teal-300 mb-5">04</div>
+                <h3 class="text-xl font-semibold mb-3">Confirm</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">A senior chemist closes the loop. The machine does not.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="doors" class="border-t border-slate-800">
+        <div class="max-w-screen-xl mx-auto px-6 py-20 grid md:grid-cols-12 gap-10 items-center">
+            <div class="md:col-span-5">
+                <p class="gold text-sm font-medium tracking-wide">Six programs. One platform.</p>
+                <h2 class="heading-font text-4xl md:text-5xl tracking-tight mt-3">The frame does not change.</h2>
+                <p class="mt-4 text-slate-400">The same method is aimed at a different research program. The company does not split.</p>
+                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1600&q=80" alt="" class="mt-8 w-full h-56 object-cover rounded-3xl border border-slate-800">
+            </div>
+            <div class="md:col-span-7 grid sm:grid-cols-2 gap-4">
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6"><p class="text-xs gold mb-2">01</p><h3 class="text-lg font-semibold">Substance use</h3></div>
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6"><p class="text-xs gold mb-2">02</p><h3 class="text-lg font-semibold">PTSD</h3></div>
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6"><p class="text-xs gold mb-2">03</p><h3 class="text-lg font-semibold">Neurodegeneration</h3></div>
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6"><p class="text-xs gold mb-2">04</p><h3 class="text-lg font-semibold">Autism</h3></div>
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6"><p class="text-xs gold mb-2">05</p><h3 class="text-lg font-semibold">Glioblastoma</h3></div>
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6"><p class="text-xs gold mb-2">06</p><h3 class="text-lg font-semibold">Chronic pain</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="standard" class="border-t border-slate-800 bg-slate-900/40">
+        <div class="max-w-screen-xl mx-auto px-6 py-20">
+            <p class="gold text-sm font-medium tracking-wide">The standard</p>
+            <h2 class="heading-font text-4xl md:text-5xl tracking-tight mt-3 max-w-3xl">A drawing is not the reading.</h2>
+            <div class="grid md:grid-cols-3 gap-6 mt-10">
+                <div class="border border-slate-800 rounded-3xl p-7">
+                    <h3 class="font-semibold text-lg mb-3">Design</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">The tools are designed to be non-intoxicating, non-hallucinogenic, and not built as scheduled substances. That is the design. It is not a result in people.</p>
+                </div>
+                <div class="border border-slate-800 rounded-3xl p-7">
+                    <h3 class="font-semibold text-lg mb-3">On file</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">A US provisional patent is on file. BioTech Ventures was founded in 2020. This platform’s work is 2026.</p>
+                </div>
+                <div class="border border-slate-800 rounded-3xl p-7">
+                    <h3 class="font-semibold text-lg mb-3">Identity</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Identity is a mass and an NMR. That is how the atoms are named. A picture is not that reading.</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Capabilities -->
-    <div id="capabilities" class="max-w-screen-xl mx-auto px-6 pb-20">
-        <h2 class="section-header tracking-tight mb-3">Capabilities</h2>
-        <p class="text-slate-400 mb-10 max-w-md">Focused research and development activities.</p>
-        
-        <div class="grid md:grid-cols-2 gap-6">
-            <div class="biotech-card border border-slate-800 bg-slate-900 rounded-3xl p-8">
-                <h3 class="font-semibold text-xl mb-4">Research & Development</h3>
-                <p class="text-slate-400">Scientific discovery, process development, and related research activities.</p>
+    <section id="arizona" class="border-t border-slate-800">
+        <div class="max-w-screen-xl mx-auto px-6 py-20 grid md:grid-cols-12 gap-10 items-center">
+            <div class="md:col-span-5 overflow-hidden rounded-3xl border border-slate-800 h-72">
+                <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=1800&q=80" alt="" class="w-full h-full object-cover object-left">
             </div>
-            
-            <div class="biotech-card border border-slate-800 bg-slate-900 rounded-3xl p-8">
-                <h3 class="font-semibold text-xl mb-4">Analytical Support</h3>
-                <p class="text-slate-400">Characterization, method development, and quality documentation.</p>
+            <div class="md:col-span-7">
+                <p class="gold text-sm font-medium tracking-wide">Scottsdale</p>
+                <h2 class="heading-font text-4xl md:text-5xl tracking-tight mt-3">On the campus. One of many.</h2>
+                <p class="mt-5 text-slate-300 text-lg leading-relaxed max-w-xl">Leased lab space in the Collaborative Research Building, on the Mayo Clinic Scottsdale campus, in Discovery Oasis.</p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Arizona -->
-    <div id="arizona" class="max-w-screen-xl mx-auto px-6 py-16 border-t border-slate-800">
-        <div class="grid md:grid-cols-12 gap-x-12">
-            <div class="md:col-span-5">
-                <h2 class="section-header tracking-tight mb-6">Scottsdale, Arizona</h2>
-                <p class="text-slate-400">
-                    Corporate operations are based in Scottsdale. Our activities are located on the Mayo Clinic Scottsdale campus as part of the broader Greater Phoenix life sciences ecosystem.
-                </p>
-            </div>
-            <div class="md:col-span-7 mt-10 md:mt-0">
-                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8">
-                    <div class="font-semibold mb-3">Current Focus</div>
-                    <ul class="space-y-2 text-sm text-slate-300">
-                        <li class="flex items-center gap-x-2"><span class="text-teal-400">•</span> Operations on the Mayo Clinic Scottsdale campus</li>
-                        <li class="flex items-center gap-x-2"><span class="text-teal-400">•</span> Building scientific capacity in Arizona</li>
-                        <li class="flex items-center gap-x-2"><span class="text-teal-400">•</span> Research and development activities</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Contact -->
-    <div id="contact" class="border-t border-slate-800 bg-slate-900 py-16">
+    <section id="contact" class="border-t border-slate-800 bg-slate-900 py-20">
         <div class="max-w-screen-xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-semibold tracking-tight mb-3">Contact</h2>
-            <p class="text-slate-400 mb-8 max-w-md mx-auto">For research and partnership inquiries.</p>
-            
-            <a href="mailto:contact@bio-techventures.com" 
-               class="inline-flex items-center justify-center gap-x-3 px-8 py-4 bg-white text-slate-950 font-semibold rounded-3xl hover:bg-slate-100 transition-colors">
-                contact@bio-techventures.com
-            </a>
+            <h2 class="heading-font text-4xl tracking-tight">Contact</h2>
+            <p class="text-slate-400 mt-3 mb-8">Research and partnership.</p>
+            <a href="mailto:contact@bio-techventures.com" class="inline-flex px-8 py-4 bg-white text-slate-950 font-semibold rounded-3xl hover:bg-slate-100">contact@bio-techventures.com</a>
         </div>
-    </div>
+    </section>
 
-    <footer class="border-t border-slate-800 py-8">
-        <div class="max-w-screen-xl mx-auto px-6 text-center text-xs text-slate-500">
-            © BioTech Ventures,Inc. · Scottsdale, Arizona
-        </div>
+    <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-500">
+        © BioTech Ventures, Inc. · Scottsdale, Arizona
     </footer>
-
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+        document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+            anchor.addEventListener('click', function (e) {
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
             });
         });
     </script>
