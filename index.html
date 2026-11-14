@@ -5,181 +5,537 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BioTech Ventures | The Psychedelic Revolution, Without the Trip</title>
     <meta name="description" content="Psychedelics cracked open the brain. We're building the tools to finish the job, without the trip. BioTech Ventures is the company. NeuroForge™ is a tunable modular platform for laboratory research tools.">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="theme-color" content="#F4F7FB">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
-        body { font-family: Inter, system-ui, sans-serif; }
-        .heading-font { font-family: 'Space Grotesk', Inter, system-ui, sans-serif; font-weight: 600; }
-        .gold { color: #C6A15B; }
-        @media (min-width: 768px) {
-            .rail { position: relative; }
-            .rail:before {
-                content: "";
-                position: absolute;
-                left: 8%;
-                right: 8%;
-                top: 28px;
-                height: 1px;
-                background: linear-gradient(90deg, transparent, #0f766e, #C6A15B, #0f766e, transparent);
+        :root {
+            --navy: #0B1A2C;
+            --slate: #1E3448;
+            --ink: #1A2433;
+            --mute: #5A6878;
+            --line: #DCE3EC;
+            --blue: #2F8CFF;
+            --cyan: #34C6E0;
+            --cyan-ink: #0B7384;
+            --violet: #8B5CF6;
+            --violet-ink: #6D46D6;
+            --bg: #F4F7FB;
+            --white: #ffffff;
+            --radius: 10px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: Inter, system-ui, -apple-system, sans-serif;
+            color: var(--ink);
+            background: var(--white);
+            font-size: 18px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+        img { display: block; max-width: 100%; }
+        a { color: inherit; }
+        .wrap {
+            width: min(1120px, calc(100% - 48px));
+            margin-inline: auto;
+        }
+        .measure { max-width: 40rem; }
+        .label {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            color: var(--violet-ink);
+            margin-bottom: 8px;
+        }
+        h1, h2, h3 { color: var(--navy); letter-spacing: -0.025em; }
+        /* Nav */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255,255,255,.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid var(--navy);
+        }
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+            gap: 24px;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 17px;
+            color: var(--navy);
+            letter-spacing: -0.01em;
+            flex-shrink: 0;
+        }
+        .mark {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 800;
+            font-size: 16px;
+            background: linear-gradient(135deg, var(--blue), var(--violet));
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--slate);
+        }
+        .nav-links a { text-decoration: none; }
+        .nav-links a:hover { color: var(--navy); }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 18px;
+            background: var(--navy);
+            color: #fff;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 8px;
+            white-space: nowrap;
+        }
+        .btn:hover { background: var(--slate); }
+        .btn-light {
+            background: #fff;
+            color: var(--navy);
+        }
+        .btn-light:hover { background: var(--bg); }
+        /* Hero: text on light, photo beside / below — never over the photo */
+        .hero {
+            background: var(--white);
+            padding: 48px 0 0;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+            gap: 48px;
+            align-items: center;
+            padding-bottom: 48px;
+        }
+        .kicker {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--mute);
+            margin-bottom: 14px;
+        }
+        .kicker-break::before { content: " · "; }
+        .hero h1 {
+            font-size: clamp(1.85rem, 4.2vw, 2.75rem);
+            font-weight: 800;
+            line-height: 1.12;
+            margin-bottom: 12px;
+        }
+        .subhead {
+            font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+            font-weight: 600;
+            color: var(--cyan-ink);
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+        .lead {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: var(--slate);
+            max-width: 36rem;
+        }
+        .hero-photo img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 0 0 1px var(--line), 0 18px 40px rgba(11, 26, 44, 0.08);
+        }
+        .rule {
+            height: 4px;
+            background: linear-gradient(90deg, var(--cyan), var(--blue), var(--violet));
+        }
+        /* Mission, just under the hero */
+        .mission {
+            background: var(--bg);
+            padding: 56px 0;
+        }
+        .mission p { margin-bottom: 16px; color: var(--ink); }
+        .mission p:last-of-type { margin-bottom: 0; }
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 24px;
+        }
+        .chip {
+            border: 1px solid var(--line);
+            background: #fff;
+            color: var(--navy);
+            font-size: 15px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 8px;
+        }
+        /* Sections */
+        section.block { padding: 72px 0; }
+        section.block.alt { background: var(--bg); }
+        .headline {
+            font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 12px;
+            max-width: 22ch;
+        }
+        .headline.wide { max-width: 28ch; }
+        .intro { color: var(--slate); max-width: 40rem; margin-bottom: 12px; }
+        .intro + .intro { margin-top: 0; }
+        /* Rank / Filter / Confirm steps */
+        .steps {
+            display: grid;
+            grid-template-columns: 1fr 28px 1fr 28px 1fr;
+            align-items: stretch;
+            margin-top: 28px;
+        }
+        .step {
+            border-radius: var(--radius);
+            padding: 22px 20px 24px;
+            color: #fff;
+            min-height: 100%;
+        }
+        .s1 { background: linear-gradient(150deg, #123A63, #1E5FA8); }
+        .s2 { background: linear-gradient(150deg, #1E3A7A, #4B47C2); }
+        .s3 { background: linear-gradient(150deg, #3B2A82, #7B4FE0); }
+        .step .n {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            opacity: 0.8;
+        }
+        .step h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.03em;
+            margin: 4px 0 10px;
+        }
+        .step p { font-size: 16px; line-height: 1.55; color: #E6ECF5; }
+        .arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--violet-ink);
+            font-size: 22px;
+            font-weight: 700;
+        }
+        .burn {
+            margin-top: 24px;
+            background: var(--bg);
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--cyan);
+            border-radius: var(--radius);
+            padding: 14px 18px;
+            color: var(--ink);
+            max-width: 46rem;
+        }
+        /* Programs */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+            gap: 40px;
+            align-items: start;
+        }
+        .program-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .prog {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 14px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 16px;
+        }
+        .prog.live { border-color: #B9D6FF; background: #F2F7FF; }
+        .tag {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .tag.live { background: var(--blue); color: #fff; }
+        .tag.later { background: #ECE6FB; color: var(--violet-ink); }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 36px;
+        }
+        .stat {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-top: 4px solid var(--cyan);
+            border-radius: var(--radius);
+            padding: 18px 18px 16px;
+        }
+        .stat .big {
+            font-size: clamp(1.7rem, 3vw, 2.15rem);
+            font-weight: 800;
+            color: var(--navy);
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .stat p { font-size: 16px; line-height: 1.5; color: var(--ink); }
+        /* Standard cards */
+        .cards-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 28px;
+        }
+        .card {
+            background: var(--bg);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px 20px;
+        }
+        .card.accent { border-left: 4px solid var(--blue); background: #fff; }
+        .card.accent2 { border-left: 4px solid var(--violet); background: #fff; }
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+        .card p { font-size: 16px; line-height: 1.6; color: var(--slate); }
+        /* Arizona */
+        .arizona-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+            gap: 40px;
+            align-items: center;
+        }
+        .arizona-grid img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 0 0 1px var(--line);
+        }
+        /* Close */
+        .close {
+            text-align: center;
+            padding: 72px 0;
+        }
+        .close-rule {
+            width: 90px;
+            height: 3px;
+            margin: 0 auto 18px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, var(--cyan), var(--blue), var(--violet));
+        }
+        .close p {
+            font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+            font-weight: 700;
+            color: var(--navy);
+            letter-spacing: -0.02em;
+            line-height: 1.35;
+            max-width: 46rem;
+            margin: 0 auto;
+        }
+        @media (min-width: 861px) {
+            .close-break { display: block; }
+        }
+        /* Contact */
+        .contact {
+            padding: 0 0 72px;
+        }
+        .contact-card {
+            background: linear-gradient(120deg, #07111F, #0E2236 60%, #1B1E45);
+            color: #fff;
+            border-radius: 12px;
+            padding: 40px 36px;
+            text-align: center;
+        }
+        .contact-card .label { color: #9FB3C8; }
+        .contact-card h2 {
+            color: #fff;
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            font-weight: 800;
+            margin: 4px 0 22px;
+        }
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 22px 0;
+            color: var(--mute);
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        footer .wrap {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            width: min(1120px, calc(100% - 48px));
+        }
+        /* Mobile */
+        @media (max-width: 860px) {
+            .nav-links { display: none; }
+            .hero-grid,
+            .programs-grid,
+            .arizona-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
             }
+            .hero { padding-top: 32px; }
+            .hero-grid { padding-bottom: 32px; }
+            .hero h1 { max-width: none; }
+            .headline { max-width: none; }
+            .headline.wide { max-width: none; }
+            .hero-photo { order: 2; }
+            .hero-copy { order: 1; }
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            .arrow { transform: rotate(90deg); height: 22px; }
+            .program-list { grid-template-columns: 1fr; }
+            .stats, .cards-3 { grid-template-columns: 1fr; }
+            section.block { padding: 56px 0; }
+            .mission, .close { padding: 48px 0; }
+            .contact { padding-bottom: 56px; }
+            .contact-card { padding: 32px 22px; }
+            .arizona-grid img { order: 2; }
+            .kicker-break { display: block; line-height: 0; height: 0; }
+            .kicker-break::before { content: none; }
+        }
+        @media (max-width: 640px) {
+            .wrap, footer .wrap { width: min(1120px, calc(100% - 40px)); }
+            body { font-size: 17px; }
+            .nav-inner { height: 64px; }
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-200">
-    <nav class="border-b border-slate-800/80 bg-slate-950/85 backdrop-blur-lg sticky top-0 z-50">
-        <div class="max-w-screen-xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#top" class="flex items-center gap-3">
-                <span class="w-9 h-9 bg-teal-500 rounded-xl flex items-center justify-center text-slate-950 font-bold text-2xl tracking-tighter">B</span>
-                <span class="font-semibold text-xl tracking-tight">BioTech Ventures</span>
+<body>
+    <header class="nav">
+        <div class="wrap nav-inner">
+            <a href="#top" class="brand">
+                <span class="mark">B</span>
+                BioTech Ventures
             </a>
-            <div class="hidden md:flex items-center gap-8 text-sm text-slate-300">
-                <a href="#technology" class="hover:text-teal-300">The technology</a>
-                <a href="#doors" class="hover:text-teal-300">Programs</a>
-                <a href="#standard" class="hover:text-teal-300">Standard</a>
-                <a href="#arizona" class="hover:text-teal-300">Arizona</a>
-            </div>
-            <a href="#contact" class="px-5 py-2.5 bg-white text-slate-950 text-sm font-medium rounded-2xl hover:bg-slate-100">Contact</a>
-        </div>
-    </nav>
-
-    <header id="top" class="relative overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=1800&q=80" alt="" class="absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/88 to-slate-950/30"></div>
-        <div class="relative max-w-screen-xl mx-auto px-6 pt-16 pb-20 md:pt-24 md:pb-28">
-            <p class="text-sm font-medium text-teal-300 mb-5">Scottsdale, Arizona</p>
-            <h1 class="heading-font text-5xl md:text-7xl leading-[0.95] tracking-tight text-white max-w-5xl">The Psychedelic Revolution, Without the Trip</h1>
-            <p class="heading-font text-2xl md:text-4xl tracking-tight gold mt-5 max-w-4xl">Rewiring the Broken Brain</p>
-            <p class="mt-6 text-lg md:text-xl text-slate-200 max-w-3xl">Psychedelics cracked open the brain. We're building the tools to finish the job, without the trip.</p>
-            <p class="mt-4 text-base md:text-lg text-slate-300 max-w-3xl">Something is broken in the brain — in a veteran who cannot come all the way home, in a family living with addiction, in a parent who is disappearing into Alzheimer's. Almost every family is close to at least one of those stories.</p>
-            <p class="mt-4 text-base md:text-lg text-slate-300 max-w-3xl">BioTech Ventures is the company. NeuroForge™ is a tunable modular platform for laboratory research tools. One core. Six programs. One attachment site. One method. The platform stays. We are not a medicine company. We do not have results in people.</p>
-            <div class="mt-8 flex flex-wrap gap-2 max-w-3xl">
-                <span class="px-3 py-1 rounded-full border border-white/20 text-sm">Substance use</span>
-                <span class="px-3 py-1 rounded-full border border-white/20 text-sm">PTSD</span>
-                <span class="px-3 py-1 rounded-full border border-white/20 text-sm">Neurodegeneration</span>
-                <span class="px-3 py-1 rounded-full border border-white/20 text-sm">Autism</span>
-                <span class="px-3 py-1 rounded-full border border-white/20 text-sm">Glioblastoma</span>
-                <span class="px-3 py-1 rounded-full border border-white/20 text-sm">Chronic pain</span>
-            </div>
+            <nav class="nav-links">
+                <a href="#technology">The technology</a>
+                <a href="#programs">Programs</a>
+                <a href="#standard">Standard</a>
+                <a href="#arizona">Arizona</a>
+            </nav>
+            <a href="#contact" class="btn">Contact</a>
         </div>
     </header>
 
-    <section id="technology" class="max-w-screen-xl mx-auto px-6 py-20">
-        <div class="grid md:grid-cols-12 gap-10 items-end mb-12">
-            <div class="md:col-span-7">
-                <p class="gold text-sm font-medium tracking-wide">The technology</p>
-                <h2 class="heading-font text-3xl md:text-5xl tracking-tight mt-3">AI-ranked. Psychedelic-inspired. Built to rewire the broken brain.</h2>
-                <p class="mt-4 text-xl text-slate-200 max-w-xl">Rank. Filter. Confirm.</p>
-                <p class="mt-3 text-slate-400 max-w-xl">Proprietary, AI-driven computational software runs retrosynthesis and QSAR and scores each starting point against public science before a dollar reaches the bench. A weak start is dropped. The software does not invent an atom and does not find a drug.</p>
+    <section class="hero" id="top">
+        <div class="wrap hero-grid">
+            <div class="hero-copy">
+                <p class="kicker">BioTech Ventures, Inc.<span class="kicker-break"></span> Scottsdale, Arizona</p>
+                <h1>The Psychedelic Revolution,<br>Without the Trip</h1>
+                <p class="subhead">Rewiring the Broken Brain</p>
+                <p class="lead">Psychedelics cracked open the brain. We're building the tools to finish the job, without the trip.</p>
             </div>
-            <div class="md:col-span-5 overflow-hidden rounded-3xl border border-slate-800 h-48">
-                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1800&q=80" alt="" class="w-full h-full object-cover">
-            </div>
+            <figure class="hero-photo">
+                <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" alt="">
+            </figure>
         </div>
-
-        <div class="rail grid md:grid-cols-4 gap-5">
-            <article class="bg-slate-900 border border-slate-800 rounded-3xl p-6">
-                <div class="w-14 h-14 rounded-full border border-teal-700 flex items-center justify-center heading-font text-teal-300 mb-5">01</div>
-                <h3 class="text-xl font-semibold mb-3">Frame</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">One core. One attachment site. One method. The group is the only change.</p>
-            </article>
-            <article class="bg-slate-900 border border-teal-900 rounded-3xl p-6">
-                <div class="w-14 h-14 rounded-full border border-[#C6A15B] flex items-center justify-center heading-font text-[#C6A15B] mb-5">02</div>
-                <h3 class="text-xl font-semibold mb-3">Rank</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">The software scores each starting point against public science before a dollar reaches the bench.</p>
-            </article>
-            <article class="bg-slate-900 border border-slate-800 rounded-3xl p-6">
-                <div class="w-14 h-14 rounded-full border border-teal-700 flex items-center justify-center heading-font text-teal-300 mb-5">03</div>
-                <h3 class="text-xl font-semibold mb-3">Filter</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">A weak start is dropped. The software does not invent an atom. It does not find a drug.</p>
-            </article>
-            <article class="bg-slate-900 border border-slate-800 rounded-3xl p-6">
-                <div class="w-14 h-14 rounded-full border border-teal-700 flex items-center justify-center heading-font text-teal-300 mb-5">04</div>
-                <h3 class="text-xl font-semibold mb-3">Confirm</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">A senior chemist confirms identity with high-resolution mass plus assigned NMR — the molecular fingerprint that proves each molecule is what we say it is. The machine does not close the loop.</p>
-            </article>
-        </div>
-        <p class="mt-8 text-slate-400 max-w-3xl">That method is how the company reached a filed U.S. provisional and a tenant lab on a low burn.</p>
+        <div class="rule" aria-hidden="true"></div>
     </section>
 
-    <section id="doors" class="border-t border-slate-800">
-        <div class="max-w-screen-xl mx-auto px-6 py-20 grid md:grid-cols-12 gap-10 items-center">
-            <div class="md:col-span-5">
-                <p class="gold text-sm font-medium tracking-wide">Six programs. One platform.</p>
-                <h2 class="heading-font text-4xl md:text-5xl tracking-tight mt-3">The frame does not change.</h2>
-                <p class="mt-4 text-slate-400">The same method is aimed at a different research program. The company does not split. Three programs are live: substance use, PTSD, and neurodegeneration. Autism and glioblastoma are later programs and are not started. Chronic pain is the sixth program on the platform.</p>
-                <p class="mt-4 text-slate-400">Every family touched by PTSD, addiction, or memory loss is why this work exists. We sell research tools to the labs trying to help them — not a medicine, and not a promise of results in people.</p>
-                <p class="mt-4 text-slate-500 text-sm leading-relaxed">About 13 million Americans had PTSD in 2020. In 2024, 48.4 million people in the United States aged 12 or older had a past-year substance use disorder. An estimated 7.4 million Americans age 65 and older are living with Alzheimer's dementia in 2026.</p>
-                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1600&q=80" alt="" class="mt-8 w-full h-56 object-cover rounded-3xl border border-slate-800">
+    <section class="mission" id="mission">
+        <div class="wrap">
+            <div class="measure">
+                <p>Something is broken in the brain — in a veteran who cannot come all the way home, in a family living with addiction, in a parent who is disappearing into Alzheimer's. Almost every family is close to at least one of those stories.</p>
+                <p>BioTech Ventures is the company. NeuroForge™ is a tunable modular platform for laboratory research tools. One core. Six programs. One attachment site. One method. The platform stays. We are not a medicine company. We do not have results in people.</p>
             </div>
-            <div class="md:col-span-7 grid sm:grid-cols-2 gap-4">
-                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6"><p class="text-xs gold mb-2">01</p><h3 class="text-lg font-semibold">Substance use</h3><p class="text-slate-500 text-sm mt-2">Live</p></div>
-                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6"><p class="text-xs gold mb-2">02</p><h3 class="text-lg font-semibold">PTSD</h3><p class="text-slate-500 text-sm mt-2">Live</p></div>
-                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6"><p class="text-xs gold mb-2">03</p><h3 class="text-lg font-semibold">Neurodegeneration</h3><p class="text-slate-500 text-sm mt-2">Live</p></div>
-                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6"><p class="text-xs gold mb-2">04</p><h3 class="text-lg font-semibold">Autism</h3><p class="text-slate-500 text-sm mt-2">Later</p></div>
-                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6"><p class="text-xs gold mb-2">05</p><h3 class="text-lg font-semibold">Glioblastoma</h3><p class="text-slate-500 text-sm mt-2">Later</p></div>
-                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6"><p class="text-xs gold mb-2">06</p><h3 class="text-lg font-semibold">Chronic pain</h3></div>
+            <div class="chips">
+                <span class="chip">Substance use</span>
+                <span class="chip">PTSD</span>
+                <span class="chip">Neurodegeneration</span>
+                <span class="chip">Autism</span>
+                <span class="chip">Glioblastoma</span>
+                <span class="chip">Chronic pain</span>
             </div>
         </div>
     </section>
 
-    <section id="standard" class="border-t border-slate-800 bg-slate-900/40">
-        <div class="max-w-screen-xl mx-auto px-6 py-20">
-            <p class="gold text-sm font-medium tracking-wide">The standard</p>
-            <h2 class="heading-font text-4xl md:text-5xl tracking-tight mt-3 max-w-3xl">A drawing is not the reading.</h2>
-            <div class="grid md:grid-cols-3 gap-6 mt-10">
-                <div class="border border-slate-800 rounded-3xl p-7">
-                    <h3 class="font-semibold text-lg mb-3">Design</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">The tools are designed to be non-intoxicating, non-hallucinogenic, and not built as scheduled substances. That is the design. It is not a result in people.</p>
+    <section class="block" id="technology">
+        <div class="wrap">
+            <p class="label">The technology</p>
+            <h2 class="headline wide">AI-ranked. Psychedelic-inspired. Built to rewire the broken brain.</h2>
+            <p class="intro" style="font-weight:600;color:var(--navy);margin-bottom:8px;">Rank. Filter. Confirm.</p>
+            <p class="intro">One core. One attachment site. One method. The group is the only change.</p>
+            <p class="intro">Proprietary, AI-driven computational software runs retrosynthesis and QSAR and scores each starting point against public science before a dollar reaches the bench. A weak start is dropped. The software does not invent an atom and does not find a drug.</p>
+
+            <div class="steps">
+                <article class="step s1">
+                    <div class="n">Step 1</div>
+                    <h3>Rank.</h3>
+                    <p>The software scores each starting point against public science before a dollar reaches the bench.</p>
+                </article>
+                <div class="arrow" aria-hidden="true">›</div>
+                <article class="step s2">
+                    <div class="n">Step 2</div>
+                    <h3>Filter.</h3>
+                    <p>A weak start is dropped. The software does not invent an atom. It does not find a drug.</p>
+                </article>
+                <div class="arrow" aria-hidden="true">›</div>
+                <article class="step s3">
+                    <div class="n">Step 3</div>
+                    <h3>Confirm.</h3>
+                    <p>A senior chemist confirms identity with high-resolution mass plus assigned NMR — the molecular fingerprint that proves each molecule is what we say it is. The machine does not close the loop.</p>
+                </article>
+            </div>
+            <p class="burn">That method is how the company reached a filed U.S. provisional and a tenant lab on a low burn.</p>
+        </div>
+    </section>
+
+    <section class="block alt" id="programs">
+        <div class="wrap">
+            <div class="programs-grid">
+                <div>
+                    <p class="label">Six programs. One platform.</p>
+                    <h2 class="headline">The frame does not change.</h2>
+                    <p class="intro">The same method is aimed at a different research program. The company does not split. Three programs are live: substance use, PTSD, and neurodegeneration. Autism and glioblastoma are later programs and are not started. Chronic pain is the sixth program on the platform.</p>
+                    <p class="intro">Every family touched by PTSD, addiction, or memory loss is why this work exists. We sell research tools to the labs trying to help them — not a medicine, and not a promise of results in people.</p>
                 </div>
-                <div class="border border-slate-800 rounded-3xl p-7">
-                    <h3 class="font-semibold text-lg mb-3">On file</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Filed U.S. provisional 64/131,190 (11 August 2026, owned by the company; not an issued patent). BioTech Ventures was founded in 2020. NeuroForge™ work began in 2026. The goal is to file the U.S. utility patent application in 2026.</p>
-                </div>
-                <div class="border border-slate-800 rounded-3xl p-7">
-                    <h3 class="font-semibold text-lg mb-3">Identity</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">The first identity reading is a molecular fingerprint — high-resolution mass plus an assigned NMR — that proves each molecule is what we say it is. A drawing is not a reading.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="arizona" class="border-t border-slate-800">
-        <div class="max-w-screen-xl mx-auto px-6 py-20 grid md:grid-cols-12 gap-10 items-center">
-            <div class="md:col-span-5 overflow-hidden rounded-3xl border border-slate-800 h-72">
-                <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=1800&q=80" alt="" class="w-full h-full object-cover object-left">
-            </div>
-            <div class="md:col-span-7">
-                <p class="gold text-sm font-medium tracking-wide">Scottsdale</p>
-                <h2 class="heading-font text-4xl md:text-5xl tracking-tight mt-3">One of many tenants.</h2>
-                <p class="mt-5 text-slate-300 text-lg leading-relaxed max-w-xl">We lease wet-lab space in the Collaborative Research Building, Discovery Oasis, on the Mayo Clinic Scottsdale campus, as one of many tenants.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="close" class="border-t border-slate-800 bg-slate-900/40">
-        <div class="max-w-screen-xl mx-auto px-6 py-20 text-center">
-            <p class="heading-font text-3xl md:text-5xl tracking-tight text-white max-w-4xl mx-auto leading-tight">The brain is the last frontier in medicine. We're building the map, one fingerprint at a time.</p>
-        </div>
-    </section>
-
-    <section id="contact" class="border-t border-slate-800 bg-slate-900 py-20">
-        <div class="max-w-screen-xl mx-auto px-6 text-center">
-            <h2 class="heading-font text-4xl tracking-tight">Contact</h2>
-            <p class="text-slate-400 mt-3 mb-8">Research inquiries.</p>
-            <a href="mailto:contact@bio-techventures.com" class="inline-flex px-8 py-4 bg-white text-slate-950 font-semibold rounded-3xl hover:bg-slate-100">contact@bio-techventures.com</a>
-        </div>
-    </section>
-
-    <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-500">
-        © BioTech Ventures, Inc. · Scottsdale, Arizona
-    </footer>
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-            anchor.addEventListener('click', function (e) {
-                var target = document.querySelector(this.getAttribute('href'));
-                if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-            });
-        });
-    </script>
-</body>
-</html>
+                <div class="program-list">
+                    <d
